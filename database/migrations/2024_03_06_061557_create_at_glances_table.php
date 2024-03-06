@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('at_glances', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('author_id')->constrained('users');
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained();
             $table->longText('description');
             $table->string('evidence');
