@@ -16,7 +16,6 @@ return new class extends Migration
             $table->text('body');
             $table->dateTime('date_written')->nullable();
             $table->foreignId('job_id')->constrained();
-            $table->foreignId('admin_id')->constrained();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('comment_id');
 

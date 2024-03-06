@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('job_id')->constrained();
-            $table->foreignId('admin_id')->constrained();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->dateTime('date_written')->nullable();
