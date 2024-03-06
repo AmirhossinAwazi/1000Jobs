@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('min_income_range');
             $table->integer('max_income_range');
             $table->string('revenue_model');
-            $table->string('company');
+            $table->string('company')->nullable();
             $table->longText('description');
             $table->dateTime('moderated_at')->nullable();
             $table->timestamps();
