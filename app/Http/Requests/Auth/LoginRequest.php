@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
+use App\Models\User;
 use Illuminate\Validation\ValidationException;
 
 class LoginRequest extends FormRequest
@@ -27,7 +28,8 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
+            'email' => ['nullable', 'string', 'email'],
+            'username' => ['nullable', 'string', 'alpha_dash:ascii', 'max:20'],
             'password' => ['required', 'string'],
         ];
     }
