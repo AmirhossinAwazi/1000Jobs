@@ -1,19 +1,38 @@
-<!DOCTYPE html>
-<html dir="rtl" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<div class="bg-black">
+    <div class="flex justify-between">
 
-    <head>
+        <div class="font-normal text-sm text-white pt-4 pr-4">
+            هزارجاب | راهنمای تصمیم‌گیری شغلی
+        </div>
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Header</title>
+        <div class="w-12 h-12">
+            <x-application-logo-text/>
+        </div>
 
-    </head>
+    </div>
 
-    <body>
+</div>
 
-        
+<div class="w-full h-6 py-1 pr-4 flex gap-3 bg-amber-300">
 
-    </body>
+    <div class="mb-3">
 
-</html>
+        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center">
+
+            <li class="me-2">
+                <a href="#" class="inline-block border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                    صحفه اصلی
+                </a>
+            </li>
+
+            <li class="me-2">
+                <a href="#" class="inline-block border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                    معرفی شغل من
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
