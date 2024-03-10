@@ -12,6 +12,8 @@
 <body class="font-sans text-gray-900 antialiased max-w-md mx-auto">
 
     <x-header/>
-    
+
+    {{ $slot }}
+
 </body>
 </html>
