@@ -20,7 +20,7 @@
         <ul class="flex flex-wrap -mb-px text-sm font-medium text-center">
 
             <li class="me-2">
-                <a href="#" class="inline-block border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                <a href="{{ route('home') }}" class="inline-block border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
                     صحفه اصلی
                 </a>
             </li>
