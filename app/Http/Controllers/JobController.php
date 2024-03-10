@@ -11,7 +11,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        return view('admin.Job.index');
+        return view('job.Short-answer');
     }
 
     /**
