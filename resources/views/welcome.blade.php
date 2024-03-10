@@ -9,7 +9,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
-    <body class="antialiased">
+    <body class="antialiased max-w-md mx-auto">
         <x-header/>
         <div class="flex justify-between border-b border-slate-300">
             <div class="flex mt-2 pr-2">
