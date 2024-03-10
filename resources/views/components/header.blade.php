@@ -26,7 +26,7 @@
             </li>
 
             <li class="me-2">
-                <a href="#" class="inline-block border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                <a href="{{ route('SAQ.index') }}" class="inline-block border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
                     معرفی شغل من
                 </a>
             </li>
