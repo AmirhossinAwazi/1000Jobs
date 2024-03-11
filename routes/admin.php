@@ -1,6 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\JobController;
-use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
 
-Route::resource('/job', [JobController::class, 'index']);
+Route::resource('/job', JobController::class);
