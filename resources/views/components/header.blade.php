@@ -20,13 +20,17 @@
         <ul class="flex flex-wrap -mb-px text-sm font-medium text-center">
 
             <li class="me-2">
-                <a href="{{ route('home') }}" class="inline-block border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                <a href="{{ route('home') }}"
+                @class(['inline-block border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300', 'border-b-red-500' => request()->route()->getName() ==  'home' ])
+                >
                     صحفه اصلی
                 </a>
             </li>
 
             <li class="me-2">
-                <a href="{{ route('Job.saq') }}" class="inline-block border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                <a href="{{ route('Job.saq') }}"
+                @class(['inline-block border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300', 'border-b-red-500' => request()->route()->getName() ==  'Job.saq' ])
+                >
                     معرفی شغل من
                 </a>
             </li>
