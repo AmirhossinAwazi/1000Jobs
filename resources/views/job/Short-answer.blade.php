@@ -48,5 +48,27 @@
                 </div>
             </div>
         </div>
+
+        <div class="flex items-center space-x-2 space-x-reverse mt-4">
+            <div class="size-4 bg-amber-300 shrink-0"></div>
+            <div class="shrink-0">اطلاعات درآمدی</div>
+            <div class="w-full h-1 bg-amber-300"></div>
+        </div>
+
+        <div>
+            <div>
+                <label for="title" class="flex">محدوده درآمدیت چقدره (ماهانه)؟</label>
+                
+                <div class="flex mt-3 items-center font-bold">
+                    <p class="m-2">از</p>
+                    <input type="text" name="min_income_range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 pl-10">
+                    <p class="m-2">میلیون تومان تا</p>
+                    <input type="text" name="max_income_range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 pl-10">
+                    <p class="m-2">میلیون تومان</p>
+                </div>
+
+            </div>             
+        </div>
+
     </div>
 </x-site-layout>
