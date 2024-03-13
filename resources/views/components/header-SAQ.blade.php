@@ -1,5 +1,5 @@
 <div class="bg-slate-50 p-4">
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-3 border-b-2 pb-1">
         <div class="flex space-x-2 space-x-reverse items-center">
             <x-pensel-svg />
             <h1>

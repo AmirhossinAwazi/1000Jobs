@@ -1,6 +1,6 @@
 <x-site-layout>
     <x-header-saq />
-    <div class="mt-4">
+    <div class=" bg-slate-50 pr-2">
         <div>
             <h1 class="text-4xl font-black">
                 اطلاعات اولیه شغلی
