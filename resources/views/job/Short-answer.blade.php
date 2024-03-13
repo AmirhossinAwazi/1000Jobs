@@ -14,11 +14,11 @@
         <div class="mt-4 space-y-3">
             <div>
                 <label for="title">عنوان شغلی‌ات رو وارد کن</label>
-                <input type="text" class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border">
+                <input id="title" type="text" class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border">
             </div>
             <div>
-                <label for="year">چند سال توی این کار تجربه داری؟</label>
-                <input type="text" class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border">
+                <label for="experience-years">چند سال توی این کار تجربه داری؟</label>
+                <input id="experience-years" type="text" class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border" pattern="[0-9]*" placeholder="فقط عدد وارد کنید">
             </div>
             <div>
                 <p>از این شغل راضی هستی؟</p>
@@ -32,8 +32,8 @@
                     </label>
                 </div>
                 <div class="">
-                    <input id="not_bad" type="radio" class="peer hidden" name="is" value="1" >
-                    <label for="not_bad"
+                    <input id="not-bad" type="radio" class="peer hidden" name="is" value="1" >
+                    <label for="not-bad"
                     class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
                         بد نیست
                     </label>
@@ -59,14 +59,14 @@
             <label for="title" class="flex">محدوده درآمدیت چقدره (ماهانه)؟</label>
             <div class="flex mt-3 items-center font-bold">
                 <p class="m-2">از</p>
-                <input type="text" name="min_income_range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 p-0.5 font-light">
+                <input type="text" name="min-income-range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 p-0.5 font-light">
                 <p class="m-2">میلیون تومان تا</p>
-                <input type="text" name="max_income_range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 p-0.5 font-light">
+                <input type="text" name="max-income-range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 p-0.5 font-light">
                 <p class="m-2">میلیون تومان</p>
             </div>          
         </div>
 
-        <div class="mt-3 pb-10">
+        <div class="mt-3">
             <p class="text-gray-900">مدل درآمدیت چجوریه؟</p>
             <div class="mt-2 flex gap-4 items-center">
                 <div>
@@ -91,5 +91,14 @@
                 </div>
             </div>
         </div>
+
+        <div>
+
+            <div class="mt-2">
+                <label for="company">اسم شرکت؟</label>
+                <input id="company" type="text" class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border">
+            </div>
+        </div>
+
     </div>
 </x-site-layout>
