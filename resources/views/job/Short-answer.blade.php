@@ -56,19 +56,40 @@
         </div>
 
         <div>
-            <div>
-                <label for="title" class="flex">محدوده درآمدیت چقدره (ماهانه)؟</label>
-                
-                <div class="flex mt-3 items-center font-bold">
-                    <p class="m-2">از</p>
-                    <input type="text" name="min_income_range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 pl-10">
-                    <p class="m-2">میلیون تومان تا</p>
-                    <input type="text" name="max_income_range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 pl-10">
-                    <p class="m-2">میلیون تومان</p>
-                </div>
-
-            </div>             
+            <label for="title" class="flex">محدوده درآمدیت چقدره (ماهانه)؟</label>
+            <div class="flex mt-3 items-center font-bold">
+                <p class="m-2">از</p>
+                <input type="text" name="min_income_range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 p-0.5 font-light">
+                <p class="m-2">میلیون تومان تا</p>
+                <input type="text" name="max_income_range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 p-0.5 font-light">
+                <p class="m-2">میلیون تومان</p>
+            </div>          
         </div>
 
+        <div class="mt-3 pb-10">
+            <p class="text-gray-900">مدل درآمدیت چجوریه؟</p>
+            <div class="mt-2 flex gap-4 items-center">
+                <div>
+                    <div class="flex items-center">
+                        <input id="Employee-checkbox" type="checkbox" value="1" name="is" class="peer hidden">
+                        <label for="Employee-checkbox" class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">کارمندی</label>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center">
+                        <input id="freelancer-checkbox" type="checkbox" value="" class="peer hidden">
+                        <label for="freelancer-checkbox" class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">فریلنسری</label>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center">
+                        <input id="entrepreneur-checkbox" type="checkbox" value="" class="peer hidden">
+                        <label for="entrepreneur-checkbox" class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">کارآفرینی</label>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </x-site-layout>
