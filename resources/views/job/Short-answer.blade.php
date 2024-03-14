@@ -181,7 +181,31 @@
         </div>
         <div class="flex mt-2">
             <x-required-svg/>
-            <p>حواست باشه اگه عکسی هست که ممکنه برای سازمان حساسیتی ایجاد کنه، قبلش با مسئولین مربوطه هماهنگ کن</p>
+            <p class="mr-1">حواست باشه اگه عکسی هست که ممکنه برای سازمان حساسیتی ایجاد کنه، قبلش با مسئولین مربوطه هماهنگ کن</p>
+        </div>
+
+        <div class="flex items-center space-x-2 space-x-reverse mt-4">
+            <div class="size-4 bg-amber-300 shrink-0"></div>
+            <div class="shrink-0">اطلاعات شخصی</div>
+            <div class="w-full h-1 bg-amber-300"></div>
+        </div>
+
+        <div>
+            <div class="flex items-center">
+                <label for="name" class="ml-2">اسمت رو وارد کن</label>
+                <x-required-svg/>
+            </div>
+            <input id="name" type="text" class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border">
+        </div>
+
+        <div class="mt-4">
+            <input id="needs_advice" type="checkbox" value="" class="w-5 h-5 text-green-600 bg-neutral-200 border-green-500 border-2 rounded focus:ring-green-500">
+            <label for="needs_advice" class=" text-neutral-700 font-bold leading-loose">اگر کسی درباره‌ی این شغل راهنمایی و مشورت نیاز داشت، به من اطلاع بده.</label>
+        </div>
+
+        <div class="mt-3">
+            <label for="Phone_number" class="text-neutral-700 text-base font-bold leading-loose">شماره تلفن همراهت رو وارد کن</label>
+            <input type="tel" class="w-full p-2 rounded-lg bg-white text-neutral-700 border">
         </div>
     </div>
 </x-site-layout>
