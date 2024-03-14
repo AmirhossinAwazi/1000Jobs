@@ -171,8 +171,17 @@
                 <x-file-input id="photo" name="photo" type="text" class="mt-1 block w-full" accept=".png,.jpeg,.jpg" />
                 <x-input-error class="mt-2" :messages="$errors->get('photo')" />
             </div>
-
+            {{-- show the photo --}}
         </div>
 
+        <div>
+            <li>از محیط کاریت</li>
+            <li>از فعالیت های تخصصی که انجام میدی</li>
+            <li>از جلساتت</li>
+        </div>
+        <div class="flex mt-2">
+            <x-required-svg/>
+            <p>حواست باشه اگه عکسی هست که ممکنه برای سازمان حساسیتی ایجاد کنه، قبلش با مسئولین مربوطه هماهنگ کن</p>
+        </div>
     </div>
 </x-site-layout>
