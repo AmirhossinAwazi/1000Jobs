@@ -157,5 +157,22 @@
                 <p class="mt-3 text-neutral-900">* لازم نیست به ترتیب و تفکیک شده جواب این سؤالات رو بدی. سعی کن داستانی بگی و توی داستانت، جواب این سؤالات باشه.</p>
             </div>
         </div>
+
+        <div class="flex items-center space-x-2 space-x-reverse mt-4">
+            <div class="size-4 bg-amber-300 shrink-0"></div>
+            <div class="shrink-0">گالری</div>
+            <div class="w-full h-1 bg-amber-300"></div>
+        </div>
+
+        <div class="m-2">
+            <p class="text-neutral-700 text-4xl font-black">با چندتا عکس فضای کاریت رو نشونمون بده</p>
+
+            <div class="mt-3">
+                <x-file-input id="photo" name="photo" type="text" class="mt-1 block w-full" accept=".png,.jpeg,.jpg" />
+                <x-input-error class="mt-2" :messages="$errors->get('photo')" />
+            </div>
+
+        </div>
+
     </div>
 </x-site-layout>
