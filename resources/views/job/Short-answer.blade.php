@@ -13,38 +13,44 @@
         </div>
         <div class="mt-4 space-y-3">
             <div>
-                <label for="title">عنوان شغلی‌ات رو وارد کن</label>
-                <input id="title" type="text" class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border">
+                <div class="flex items-center">
+                    <label for="title">عنوان شغلی‌ات رو وارد کن</label>
+                    <x-required-svg/>
+                </div>
+                <input id="title" type="text" class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border" required> 
             </div>
             <div>
-                <label for="experience-years">چند سال توی این کار تجربه داری؟</label>
-                <input id="experience-years" type="text" class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border" pattern="[0-9]*" placeholder="فقط عدد وارد کنید">
+                <div class="flex items-center">
+                    <label for="experience-years">چند سال توی این کار تجربه داری؟</label>
+                    <x-required-svg/>
+                </div>
+                <input id="experience-years" type="text" class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border" pattern="[0-9]*" placeholder="فقط عدد وارد کنید" required>
             </div>
             <div>
                 <p>از این شغل راضی هستی؟</p>
                 <div class="flex space-x-3 space-x-reverse mt-2">
                     
-                <div class="">
-                    <input id="bad" type="radio" class="peer hidden" name="is" value="1" >
-                    <label for="bad"
-                    class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
-                    ناراضی‌ام
-                    </label>
-                </div>
-                <div class="">
-                    <input id="not-bad" type="radio" class="peer hidden" name="is" value="1" >
-                    <label for="not-bad"
-                    class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
-                        بد نیست
-                    </label>
-                </div>
-                <div class="">
-                    <input id="good" type="radio" class="peer hidden" name="is" value="1" >
-                    <label for="good"
-                     class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
-                     راضی‌ام
-                    </label>
-                </div>
+                    <div>
+                        <input id="bad" type="radio" class="peer hidden" name="is" value="1" >
+                        <label for="bad"
+                        class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
+                        ناراضی‌ام
+                        </label>
+                    </div>
+                    <div>
+                        <input id="not-bad" type="radio" class="peer hidden" name="is" value="1" >
+                        <label for="not-bad"
+                        class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
+                            بد نیست
+                        </label>
+                    </div>
+                    <div>
+                        <input id="good" type="radio" class="peer hidden" name="is" value="1" >
+                        <label for="good"
+                        class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
+                        راضی‌ام
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,19 +62,27 @@
         </div>
 
         <div>
-            <label for="title" class="flex">محدوده درآمدیت چقدره (ماهانه)؟</label>
+            <div class="flex items-center">
+                <label for="title" class="flex">محدوده درآمدیت چقدره (ماهانه)؟</label>
+                <x-required-svg/>
+            </div>
+            
             <div class="flex mt-3 items-center font-bold">
                 <p class="m-2">از</p>
-                <input type="text" name="min-income-range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 p-0.5 font-light">
+                <input type="text" name="min-income-range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 p-0.5 font-light" required>
                 <p class="m-2">میلیون تومان تا</p>
-                <input type="text" name="max-income-range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 p-0.5 font-light">
+                <input type="text" name="max-income-range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید" class="rounded-md size-10 p-0.5 font-light" required>
                 <p class="m-2">میلیون تومان</p>
             </div>          
         </div>
 
         <div class="mt-3">
-            <p class="text-gray-900">مدل درآمدیت چجوریه؟</p>
+            <div class="flex items-center">
+                <p class="text-gray-900">مدل درآمدیت چجوریه؟</p>
+                <x-required-svg/>
+            </div>
             <div class="mt-2 flex gap-4 items-center">
+                {{-- one of them must be required --}}
                 <div>
                     <div class="flex items-center">
                         <input id="Employee-checkbox" type="checkbox" value="1" name="is" class="peer hidden">
@@ -78,14 +92,14 @@
 
                 <div>
                     <div class="flex items-center">
-                        <input id="freelancer-checkbox" type="checkbox" value="" class="peer hidden">
+                        <input id="freelancer-checkbox" type="checkbox" value="1" class="peer hidden">
                         <label for="freelancer-checkbox" class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">فریلنسری</label>
                     </div>
                 </div>
 
                 <div>
                     <div class="flex items-center">
-                        <input id="entrepreneur-checkbox" type="checkbox" value="" class="peer hidden">
+                        <input id="entrepreneur-checkbox" type="checkbox" value="1" class="peer hidden">
                         <label for="entrepreneur-checkbox" class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">کارآفرینی</label>
                     </div>
                 </div>
@@ -122,7 +136,7 @@
             </div>
 
             <div class="mt-3">                                                                      
-                <textarea name="description" id="description" cols="30" rows="15" type="text" placeholder="اگه سختت بود وویس بدی، اینجا متنی بنویس." class="w-full h-36 text-lg bg-white rounded-xl border border-neutral-400"></textarea>
+                <textarea name="description" id="description" cols="30" rows="15" type="text" placeholder="اگه سختت بود وویس بدی، اینجا متنی بنویس." class="w-full h-36 text-lg bg-white rounded-xl border border-neutral-400" required></textarea>
             </div>
 
             <div class="m-3 text-neutral-700 text-base leading-loose">
