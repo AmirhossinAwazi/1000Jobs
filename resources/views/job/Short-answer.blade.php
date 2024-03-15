@@ -1,5 +1,6 @@
 <x-site-layout>
-    <form action="#">
+    <form method="POST" action="{{ route('job.store') }}" enctype="multipart/form-data">
+        @csrf
         <x-header-saq />
         <div class=" bg-slate-50 pr-2">
             <div>
@@ -35,21 +36,21 @@
                     <div class="flex space-x-3 space-x-reverse mt-2">
 
                         <div>
-                            <input id="bad" type="radio" class="peer hidden" name="is" value="1">
+                            <input id="bad" type="radio" class="peer hidden" name="job-datisfaction" value="1">
                             <label for="bad"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
                                 ناراضی‌ام
                             </label>
                         </div>
                         <div>
-                            <input id="not-bad" type="radio" class="peer hidden" name="is" value="1">
+                            <input id="not-bad" type="radio" class="peer hidden" name="job-datisfaction" value="1">
                             <label for="not-bad"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
                                 بد نیست
                             </label>
                         </div>
                         <div>
-                            <input id="good" type="radio" class="peer hidden" name="is" value="1">
+                            <input id="good" type="radio" class="peer hidden" name="job-datisfaction" value="1">
                             <label for="good"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
                                 راضی‌ام
@@ -91,7 +92,7 @@
                     {{-- one of them must be required --}}
                     <div>
                         <div class="flex items-center">
-                            <input id="Employee-checkbox" type="checkbox" value="1" name="is"
+                            <input id="Employee-checkbox" type="checkbox" value="1" name="revenue-model"
                                 class="peer hidden">
                             <label for="Employee-checkbox"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">کارمندی</label>
@@ -100,7 +101,7 @@
 
                     <div>
                         <div class="flex items-center">
-                            <input id="freelancer-checkbox" type="checkbox" value="1" class="peer hidden">
+                            <input id="freelancer-checkbox" type="checkbox" value="1" class="peer hidden" name="revenue-model">
                             <label for="freelancer-checkbox"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">فریلنسری</label>
                         </div>
@@ -108,7 +109,7 @@
 
                     <div>
                         <div class="flex items-center">
-                            <input id="entrepreneur-checkbox" type="checkbox" value="1" class="peer hidden">
+                            <input id="entrepreneur-checkbox" type="checkbox" value="1" class="peer hidden" name="revenue-model">
                             <label for="entrepreneur-checkbox"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">کارآفرینی</label>
                         </div>
@@ -121,7 +122,7 @@
                 <div class="mt-2">
                     <label for="company">اسم شرکت؟</label>
                     <input id="company" type="text"
-                        class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border">
+                        class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border" name="company">
                 </div>
             </div>
 
@@ -132,7 +133,8 @@
             </div>
 
             <div class="m-2">
-                <p class="text-neutral-700 text-4xl font-black">توضیح بده دقیقاً توی این شغل، تو چه کار می‌کنی و چطور با
+                <p class="text-neutral-700 text-4xl font-black">توضیح بده دقیقاً توی این شغل، تو چه کار می‌کنی و چطور
+                    با
                     این شغل آشنا شدی؟</p>
                 <div class="flex mt-2 w-fit h-11 items-center border border-neutral-700 rounded-2xl shadow-xl">
                     <div>
@@ -220,17 +222,24 @@
             </div>
 
             <div class="mt-4">
-                <input id="needs_advice" type="checkbox" value=""
+                <input id="needs-advice" type="checkbox" value=""
                     class="w-5 h-5 text-green-600 bg-neutral-200 border-green-500 border-2 rounded focus:ring-green-500">
                 <label for="needs_advice" class=" text-neutral-700 font-bold leading-loose">اگر کسی درباره‌ی این شغل
                     راهنمایی و مشورت نیاز داشت، به من اطلاع بده.</label>
             </div>
 
             <div class="mt-3">
-                <label for="Phone_number" class="text-neutral-700 text-base font-bold leading-loose">شماره تلفن همراهت
+                <label for="Phone-number" class="text-neutral-700 text-base font-bold leading-loose">شماره تلفن همراهت
                     رو وارد کن</label>
                 <input type="tel" class="w-full p-2 rounded-lg bg-white text-neutral-700 border">
             </div>
         </div>
+
+        <div>
+            <button type="submit" class="w-20 h-10 m-2 bg-blue-500 hover:bg-blue-700 rounded-lg text-center text-white font-semibold">
+                {{ __('Save') }}
+            </button>
+        </div>
+
     </form>
 </x-site-layout>
