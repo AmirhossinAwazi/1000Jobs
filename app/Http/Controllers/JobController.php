@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreJobRequest;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -11,7 +12,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        return view('job.Short-answer');
+        //
     }
 
     /**
@@ -19,13 +20,13 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return view('job.Short-answer');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreJobRequest $request)
     {
         //
     }
