@@ -10,6 +10,7 @@
         "laravel/breeze": "^1.29",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
+        "laravel/telescope": "^5.0",
         "laravel/tinker": "^2.8"
     },
     "require-dev": {
@@ -19,7 +20,8 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
         "phpunit/phpunit": "^10.1",
-        "spatie/laravel-ignition": "^2.0"
+        "spatie/laravel-ignition": "^2.0",
+        "spatie/laravel-medialibrary": "^10.15"
     },
     "autoload": {
         "psr-4": {
