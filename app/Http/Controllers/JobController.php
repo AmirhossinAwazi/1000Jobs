@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreJobRequest;
+use App\Http\Requests\StoreTestRequest;
+use App\Models\Category;
+use App\Models\Job;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -20,15 +24,26 @@ class JobController extends Controller
      */
     public function create()
     {
-        return view('job.Short-answer');
+
+        return view('job.Short-answer', ['categories' => Category::get()]);
     }
+
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreJobRequest $request)
     {
-        //
+        $user = User::create($request->validated());
+
+        $revenueModels = implode(',', $request->input('revenue_model'));
+     
+        $job = $user->job()->make($request->validated());
+
+        $job['revenue_model'] = $revenueModels;
+        $job->save();
+        return to_route('home');
+
     }
 
     /**
