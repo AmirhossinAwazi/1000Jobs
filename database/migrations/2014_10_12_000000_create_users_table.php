@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->boolean('is_admin')->default(false);
-            $table->string('username')->unique();
-            $table->string('Phone_number')->nullable();
+            $table->string('username')->nullable()->unique();
+            $table->string('phone_number')->nullable();
             $table->boolean('needs_advice')->default(false);
             $table->rememberToken();
             $table->timestamps();
