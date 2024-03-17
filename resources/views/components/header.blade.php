@@ -28,7 +28,7 @@
             </li>
 
             <li class="me-2">
-                <a href="{{ route('Job.saq') }}"
+                <a href="{{ route('SAQ.create') }}"
                 @class(['inline-block border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300', 'border-b-red-500' => request()->route()->getName() ==  'Job.saq' ])
                 >
                     معرفی شغل من
