@@ -1,5 +1,5 @@
 <x-site-layout>
-    <form method="POST" action="{{ route('job.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('SAQ.store') }}" enctype="multipart/form-data">
         @csrf
         <x-header-saq />
         <div class=" bg-slate-50 pr-2">
@@ -16,18 +16,23 @@
             <div class="mt-4 space-y-3">
                 <div>
                     <div class="flex items-center">
-                        <label for="title">عنوان شغلی‌ات رو وارد کن</label>
+                        <label for="category_id">عنوان شغلی‌ات رو وارد کن</label>
                         <x-required-svg />
                     </div>
-                    <input id="title" type="text"
-                        class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border" required>
+                   
+                        <select name="category_id" id="category_id"  class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border">
+                            @foreach($categories as $category)
+                                <option value={{$category->id}}>{{$category->title}}</option>
+                            @endforeach
+                        </select>
+                       
                 </div>
                 <div>
                     <div class="flex items-center">
                         <label for="experience-years">چند سال توی این کار تجربه داری؟</label>
                         <x-required-svg />
                     </div>
-                    <input id="experience-years" type="text"
+                    <input name="experience_years" id="experience-years" type="text"
                         class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border" pattern="[0-9]*"
                         placeholder="فقط عدد وارد کنید" required>
                 </div>
@@ -36,21 +41,21 @@
                     <div class="flex space-x-3 space-x-reverse mt-2">
 
                         <div>
-                            <input id="bad" type="radio" class="peer hidden" name="job-datisfaction" value="1">
+                            <input id="bad" type="radio" class="peer hidden" name="job_datisfaction" value="1">
                             <label for="bad"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
                                 ناراضی‌ام
                             </label>
                         </div>
                         <div>
-                            <input id="not-bad" type="radio" class="peer hidden" name="job-datisfaction" value="1">
+                            <input id="not-bad" type="radio" class="peer hidden" name="job_datisfaction" value="1">
                             <label for="not-bad"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
                                 بد نیست
                             </label>
                         </div>
                         <div>
-                            <input id="good" type="radio" class="peer hidden" name="job-datisfaction" value="1">
+                            <input id="good" type="radio" class="peer hidden" name="job_datisfaction" value="1">
                             <label for="good"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
                                 راضی‌ام
@@ -74,10 +79,10 @@
 
                 <div class="flex mt-3 items-center font-bold">
                     <p class="m-2">از</p>
-                    <input type="text" name="min-income-range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید"
+                    <input type="text" name="min_income_range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید"
                         class="rounded-md size-10 p-0.5 font-light" required>
                     <p class="m-2">میلیون تومان تا</p>
-                    <input type="text" name="max-income-range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید"
+                    <input type="text" name="max_income_range" pattern="[0-9]*" title="لطفا فقط عدد وارد کنید"
                         class="rounded-md size-10 p-0.5 font-light" required>
                     <p class="m-2">میلیون تومان</p>
                 </div>
@@ -92,7 +97,7 @@
                     {{-- one of them must be required --}}
                     <div>
                         <div class="flex items-center">
-                            <input id="Employee-checkbox" type="checkbox" value="1" name="revenue-model"
+                            <input id="Employee-checkbox" type="checkbox" name="revenue_model[]" value="Employee"
                                 class="peer hidden">
                             <label for="Employee-checkbox"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">کارمندی</label>
@@ -101,7 +106,7 @@
 
                     <div>
                         <div class="flex items-center">
-                            <input id="freelancer-checkbox" type="checkbox" value="1" class="peer hidden" name="revenue-model">
+                            <input id="freelancer-checkbox" type="checkbox" class="peer hidden" name="revenue_model[]" value="Freelancer">
                             <label for="freelancer-checkbox"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">فریلنسری</label>
                         </div>
@@ -109,7 +114,7 @@
 
                     <div>
                         <div class="flex items-center">
-                            <input id="entrepreneur-checkbox" type="checkbox" value="1" class="peer hidden" name="revenue-model">
+                            <input id="entrepreneur-checkbox" type="checkbox" class="peer hidden" name="revenue_model[]" value="Entrepreneur">
                             <label for="entrepreneur-checkbox"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">کارآفرینی</label>
                         </div>
@@ -217,21 +222,21 @@
                     <label for="name" class="ml-2">اسمت رو وارد کن</label>
                     <x-required-svg />
                 </div>
-                <input id="name" type="text"
+                <input name="name" id="name" type="text"
                     class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border">
             </div>
 
             <div class="mt-4">
-                <input id="needs-advice" type="checkbox" value=""
+                <input name="needs-advice" id="needs-advice" type="checkbox" value=""
                     class="w-5 h-5 text-green-600 bg-neutral-200 border-green-500 border-2 rounded focus:ring-green-500">
                 <label for="needs_advice" class=" text-neutral-700 font-bold leading-loose">اگر کسی درباره‌ی این شغل
                     راهنمایی و مشورت نیاز داشت، به من اطلاع بده.</label>
             </div>
 
             <div class="mt-3">
-                <label for="Phone-number" class="text-neutral-700 text-base font-bold leading-loose">شماره تلفن همراهت
+                <label for="phone-number" class="text-neutral-700 text-base font-bold leading-loose">شماره تلفن همراهت
                     رو وارد کن</label>
-                <input type="tel" class="w-full p-2 rounded-lg bg-white text-neutral-700 border">
+                <input name="phone_number" type="tel" class="w-full p-2 rounded-lg bg-white text-neutral-700 border">
             </div>
         </div>
 
