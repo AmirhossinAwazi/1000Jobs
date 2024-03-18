@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminJobController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -8,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () { return view('welcome'); })->name('home');
 
 Route::resource('/SAQ', JobController::class);
+
+Route::resource('/job', AdminJobController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
