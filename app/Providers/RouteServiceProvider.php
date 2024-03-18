@@ -38,7 +38,7 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::domain(config('app.url'))
                 ->middleware(['web', 'auth'])
-                ->group(base_path('routes/admin.php'));
+                ->group(base_path('routes/web.php'));
         });
     }
 }
