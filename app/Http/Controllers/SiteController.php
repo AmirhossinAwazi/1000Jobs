@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Job;
 
 class SiteController extends Controller
 {
@@ -11,7 +13,10 @@ class SiteController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        return view('welcome', [
+            'jobs' => Job::all(),
+            'categories' => Category::all(),
+        ]);
     }
 
     /**
