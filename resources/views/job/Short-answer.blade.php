@@ -20,7 +20,7 @@
                         <x-required-svg />
                     </div>
                    
-                        <select name="category_id" id="category_id"  class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border">
+                        <select name="category_id" id="category_id"  class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border text-center">
                             @foreach($categories as $category)
                                 <option value={{$category->id}}>{{$category->title}}</option>
                             @endforeach
