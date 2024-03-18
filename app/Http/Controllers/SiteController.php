@@ -13,8 +13,9 @@ class SiteController extends Controller
      */
     public function index()
     {
+         $jobs = Job::with('photo')->get();
         return view('welcome', [
-            'jobs' => Job::all(),
+            'jobs' => $jobs,
             'categories' => Category::all(),
         ]);
     }
