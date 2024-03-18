@@ -17,10 +17,10 @@
 
     <div>
         @foreach ($jobs as $job)
-            <div class="w-full h-80 bg-white border-2 border-zinc-100">
+            <div class="w-full bg-white border-2 border-zinc-100">
 
-                <div class="flex w-64 h-64 left-[22px] top-[17px] rounded-2xl">
-                    <img src="{{ $job->photo }}" alt="{{ $job->category->title }}">
+                <div class="flex w-full h-80 object-cover rounded-2xl">
+                    <img src="{{ $job->photo?->original_url }}" alt="{{ $job->category->title }}">
                 </div>
 
                 <div class="flex justify-between p-3">
