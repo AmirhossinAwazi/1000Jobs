@@ -47,4 +47,8 @@ class User extends Authenticatable
     public function job():HasOne{
         return $this->hasOne(Job::class);
     }
+
+    public function Category():HasOne{
+        return $this->hasOne(Category::class);
+    }
 }
