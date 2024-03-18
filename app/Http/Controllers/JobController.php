@@ -34,16 +34,21 @@ class JobController extends Controller
      */
     public function store(StoreJobRequest $request)
     {
-        $user = User::create($request->validated());
+        $user = User::Create($request->validated());
+        // $user = User::firstOrCreate($request->validated(), ['phone_number', 'category_id']);
 
-        $revenueModels = implode(',', $request->input('revenue_model'));
-     
-        $job = $user->job()->make($request->validated());
 
-        $job['revenue_model'] = $revenueModels;
-        $job->save();
+        $job = $user->job()->create(
+            [
+                ...$request->validated(),
+                'revenue_model' => implode(',', $request->input('revenue_model')),
+            ]
+        );
+
+        $job->addMediaFromRequest('photo')->toMediaCollection('images');
+        // $job->addMediaFromRequest('voice')->toMediaCollection('voice');
+
         return to_route('home');
-
     }
 
     /**
