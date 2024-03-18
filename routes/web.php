@@ -3,10 +3,11 @@
 use App\Http\Controllers\AdminJobController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () { return view('welcome'); })->name('home');
+Route::get('/', [SiteController::class, 'index'])->name('home');
 
 Route::resource('/SAQ', JobController::class);
 
