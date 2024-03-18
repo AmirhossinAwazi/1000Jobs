@@ -7,9 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Job extends Model
+class Job extends Model implements HasMedia
 {
+    use InteractsWithMedia;
     use HasFactory;
 
     protected $fillable = [
@@ -27,6 +31,10 @@ class Job extends Model
 
     public function Category():BelongsTo{
         return $this->BelongsTo(Category::class);
+    }
+
+    public function photo(){
+        return $this->morphOne(Media::class,'model')->where('collection_name','images');
     }
 
 }
