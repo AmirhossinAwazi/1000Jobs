@@ -17,7 +17,7 @@
 
     <div>
         @foreach ($jobs as $job)
-            <div class="w-full bg-white border-2 border-zinc-100">
+            <a href="{{ route('view.index') }}" class="w-full bg-white border-2 border-zinc-100">
 
                 <div class="flex w-full h-80 object-cover rounded-2xl">
                     <img src="{{ $job->photo?->original_url }}" alt="{{ $job->category->title }}">
@@ -35,7 +35,7 @@
                         <p>م تومن</p>
                     </div>
                 </div>
-            </div>
+            </a>
         @endforeach
     </div>
 </x-site-layout>
