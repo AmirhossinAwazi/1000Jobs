@@ -1,9 +1,5 @@
 <x-site-layout>
-
-    @foreach ($jobs as $job)
-        <p class="text-right text-neutral-700 text-4xl font-black leading-loose">معرفی شغل {{ $job->category->title }}</p>
-    @endforeach
-
+    <p class="text-right text-neutral-700 text-4xl font-black leading-loose">معرفی شغل {{ $job->category->title }}</p>
     <div class="flex items-center space-x-2 space-x-reverse mt-4">
         <div class="size-7">
             <svg viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,11 +12,9 @@
         <div class="w-full h-1 bg-black"></div>
     </div>
     <div>
-        @foreach ($jobs as $job)
-            <div class="flex items-center p-1">
-                <div class="size-3 bg-black shrink-0 rounded ml-2"></div>
-                <p class="text-neutral-700 text-base font-bold">{{ $job->category->title }} دقیقاً چه کار می‌کنن؟</p>
-            </div>
-        @endforeach
+        <div class="flex items-center p-1">
+            <div class="size-3 bg-black shrink-0 rounded ml-2"></div>
+            <p class="text-neutral-700 text-base font-bold">{{ $job->category->title }} دقیقاً چه کار می‌کنن؟</p>
+        </div>
     </div>
 </x-site-layout>
