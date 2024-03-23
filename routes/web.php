@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [SiteController::class, 'index'])->name('home');
 
-Route::resource('/view', ViewController::class);
+Route::get('/view/{job}', [ViewController::class,'show'])->name('view');
 
 Route::resource('/SAQ', JobController::class);
 
