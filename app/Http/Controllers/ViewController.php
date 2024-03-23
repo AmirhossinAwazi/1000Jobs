@@ -16,7 +16,7 @@ class ViewController extends Controller
         $jobs = Job::with('photo')->get();
         return view('job.view', [
             'jobs' => $jobs,
-            // 'categories' => Category::all(),
+            'categories' => Category::all(),
         ]);
     }
 
