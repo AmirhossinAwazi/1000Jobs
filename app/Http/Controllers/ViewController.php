@@ -13,11 +13,7 @@ class ViewController extends Controller
      */
     public function index()
     {
-        $jobs = Job::with('photo')->get();
-        return view('job.view', [
-            'jobs' => $jobs,
-            'categories' => Category::all(),
-        ]);
+        //
     }
 
     /**
@@ -39,9 +35,11 @@ class ViewController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Job $job)
     {
-        //
+        return view('job.view', [
+            'job' => $job,
+        ]);
     }
 
     /**
