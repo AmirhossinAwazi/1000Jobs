@@ -29,8 +29,8 @@ class Job extends Model implements HasMedia
         'moderated_at'
     ];
 
-    public function Category():BelongsTo{
-        return $this->BelongsTo(Category::class);
+    public function category():BelongsTo{
+        return $this->belongsTo(Category::class);
     }
 
     public function photo(){
