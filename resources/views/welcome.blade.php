@@ -17,7 +17,7 @@
 
     <div>
         @foreach ($jobs as $job)
-            <a href="{{ route('view.index') }}" class="w-full bg-white border-2 border-zinc-100">
+            <a href="{{ route('view',['job'=>$job->id]) }}" class="w-full bg-white border-2 border-zinc-100">
 
                 <div class="flex w-full h-80 object-cover rounded-2xl">
                     <img src="{{ $job->photo?->original_url }}" alt="{{ $job->category->title }}">
