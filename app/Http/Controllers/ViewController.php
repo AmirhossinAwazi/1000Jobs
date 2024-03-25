@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Job;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
@@ -35,10 +35,11 @@ class ViewController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Job $job)
+    public function show(Job $job, User $user)
     {
         return view('job.view', [
             'job' => $job,
+            'user' =>$user,
         ]);
     }
 
