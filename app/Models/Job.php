@@ -37,4 +37,8 @@ class Job extends Model implements HasMedia
         return $this->morphOne(Media::class,'model')->where('collection_name','images');
     }
 
+    public function user():BelongsTo{
+        return $this->belongsTo(user::class);
+    }
+
 }
