@@ -18,12 +18,11 @@
     <div>
         @foreach ($jobs as $job)
             <a href="{{ route('view',['job'=>$job->id]) }}" class="w-full bg-white border-2 border-zinc-100">
-
-                <div class="flex w-full h-80 object-cover rounded-2xl">
-                    <img src="{{ $job->photo?->original_url }}" alt="{{ $job->category->title }}">
+                <div class="flex">
+                    <img class="w-full h-full object-cover rounded-2xl" src="{{ $job->photo?->original_url }}" alt="{{ $job->category->title }}">
                 </div>
 
-                <div class="flex justify-between p-3">
+                <div class="flex justify-between items-center p-3">
                     <div class="text-right text-black text-lg font-bold">
                         <p>{{ $job->category->title }}</p>
                     </div>
