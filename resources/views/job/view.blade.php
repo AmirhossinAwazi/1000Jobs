@@ -108,4 +108,39 @@
         </div>
     </div>
 
+    <div class="flex items-center space-x-2 space-x-reverse mt-4">
+        <div class="size-7">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M36 39C36.85 39 37.5875 38.6875 38.2125 38.0625C38.8375 37.4375 39.15 36.7 39.15 35.85C39.15 35 38.8375 34.2625 38.2125 33.6375C37.5875 33.0125 36.85 32.7 36 32.7C35.15 32.7 34.4125 33.0125 33.7875 33.6375C33.1625 34.2625 32.85 35 32.85 35.85C32.85 36.7 33.1625 37.4375 33.7875 38.0625C34.4125 38.6875 35.15 39 36 39ZM33.75 29.4H38.25C38.25 27.95 38.4 26.8875 38.7 26.2125C39 25.5375 39.7 24.65 40.8 23.55C42.3 22.05 43.3 20.8375 43.8 19.9125C44.3 18.9875 44.55 17.9 44.55 16.65C44.55 14.4 43.7625 12.5625 42.1875 11.1375C40.6125 9.7125 38.55 9 36 9C33.95 9 32.1625 9.575 30.6375 10.725C29.1125 11.875 28.05 13.4 27.45 15.3L31.5 16.95C31.95 15.7 32.5625 14.7625 33.3375 14.1375C34.1125 13.5125 35 13.2 36 13.2C37.2 13.2 38.175 13.5375 38.925 14.2125C39.675 14.8875 40.05 15.8 40.05 16.95C40.05 17.65 39.85 18.3125 39.45 18.9375C39.05 19.5625 38.35 20.35 37.35 21.3C35.7 22.75 34.6875 23.8875 34.3125 24.7125C33.9375 25.5375 33.75 27.1 33.75 29.4ZM18 48C16.35 48 14.9375 47.4125 13.7625 46.2375C12.5875 45.0625 12 43.65 12 42V6C12 4.35 12.5875 2.9375 13.7625 1.7625C14.9375 0.5875 16.35 0 18 0H54C55.65 0 57.0625 0.5875 58.2375 1.7625C59.4125 2.9375 60 4.35 60 6V42C60 43.65 59.4125 45.0625 58.2375 46.2375C57.0625 47.4125 55.65 48 54 48H18ZM18 42H54V6H18V42ZM6 60C4.35 60 2.9375 59.4125 1.7625 58.2375C0.5875 57.0625 0 55.65 0 54V12H6V54H48V60H6Z"
+                    fill="black" />
+            </svg>
+        </div>
+        <div class="shrink-0">پرسش</div>
+        <div class="w-full h-1 bg-black"></div>
+    </div>
+
+
+    <form form action="#" method="post">
+        @csrf
+        <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
+            <div>
+                <label for="username"></label>
+                <input id="username" name="username" type="username" placeholder="نام و نام خانوادگی خود را وارد کنید"
+                    class="block border border-gray-400 rounded-md h-12 w-full" required />
+            </div>
+            <div class="px-4 py-2 bg-white rounded-t-lg">
+                <label for="comment" class="sr-only">نظرتان</label>
+                <textarea id="comment" name="body" rows="3" class="w-full px-0 text-xl text-gray-900 bg-white border-0 focus:ring-0"
+                    placeholder="نظرتان را بنویسید" required /></textarea>
+            </div>
+            <div class="flex items-center justify-between px-3 py-2 border-t">
+                <button type="submit"
+                    class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-amber-400 rounded-lg focus:ring-4 focus:ring-amber-200 hover:bg-amber-500">
+                    ارسال نظر
+                </button>
+            </div>
+        </div>
+    </form>
+
 </x-site-layout>
