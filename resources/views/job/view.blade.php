@@ -17,4 +17,60 @@
             <p class="text-neutral-700 text-base font-bold">{{ $job->category->title }} دقیقاً چه کار می‌کنن؟</p>
         </div>
     </div>
+
+    <div class="mt-5">
+        <div class="flex w-fit h-full">
+            <div class="object-cover overflow-hidden w-full h-full rounded-3xl border border-neutral-600">
+                {{ $job->photo }}
+            </div>
+        </div>
+
+        <div class="mt-5 rounded-md border border-black p-4">
+            <div class="flex items-center">
+                <svg width="17" height="24" viewBox="0 0 17 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12.887 5.32384C12.887 2.57333 10.6656 0.339844 7.92984 0.339844C5.19413 0.339844 2.97266 2.57333 2.97266 5.32384V12.8115C2.97266 15.562 5.19413 17.7955 7.92984 17.7955C10.6656 17.7955 12.887 15.562 12.887 12.8115V5.32384ZM11.2335 5.32384V12.8115C11.2335 14.6443 9.75365 16.133 7.92984 16.133C6.10686 16.133 4.62615 14.6443 4.62615 12.8115V5.32384C4.62615 3.491 6.10686 2.00229 7.92984 2.00229C9.75365 2.00229 11.2335 3.491 11.2335 5.32384Z"
+                        fill="#A3A3A3" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M7.44405 21.0793L7.45232 22.7866C7.45397 23.2446 7.82601 23.6153 8.28237 23.6137C8.73874 23.6112 9.10747 23.2371 9.10581 22.7783L9.09755 21.0784C13.2718 20.6595 16.535 17.1135 16.535 12.8078C16.535 12.3489 16.1646 11.9766 15.7082 11.9766C15.2519 11.9766 14.8815 12.3489 14.8815 12.8078C14.8815 16.4776 11.9176 19.4575 8.26749 19.4575C4.61739 19.4575 1.6535 16.4776 1.6535 12.8078C1.6535 12.3489 1.28311 11.9766 0.826749 11.9766C0.370384 11.9766 0 12.3489 0 12.8078C0 17.116 3.26731 20.6628 7.44405 21.0793Z"
+                        fill="#A3A3A3" />
+                </svg>
+
+                <p class="m-2 text-neutral-700 text-base font-bold">
+                    تجربه محمد حسین
+                </p>
+            </div>
+
+            <div>
+                <div>
+                    <p id="job-description" class="text-justify text-neutral-700 text-base font-light leading-loose truncate">
+                        {{ $job->description }}
+                    </p>
+                    <div id="read-more-btn" class="text-center text-neutral-700 text-base font-bold cursor-pointer">
+                        نمایش بیشتر ...
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        const description = document.getElementById('job-description');
+                        const btn = document.getElementById('read-more-btn');
+                
+                        let isExpanded = false;
+                
+                        btn.addEventListener('click', function() {
+                            isExpanded = !isExpanded;
+                            if (isExpanded) {
+                                description.classList.remove('truncate');
+                                btn.textContent = 'بستن';
+                            } else {
+                                description.classList.add('truncate');
+                                btn.textContent = 'نمایش بیشتر ...';
+                            }
+                        });
+                    });
+                </script>                   
+            </div>
+        </div>
+    </div>
 </x-site-layout>
