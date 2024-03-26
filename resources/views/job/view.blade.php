@@ -44,7 +44,8 @@
 
             <div>
                 <div>
-                    <p id="job-description" class="text-justify text-neutral-700 text-base font-light leading-loose truncate">
+                    <p id="job-description"
+                        class="text-justify text-neutral-700 text-base font-light leading-loose truncate">
                         {{ $job->description }}
                     </p>
                     <div id="read-more-btn" class="text-center text-neutral-700 text-base font-bold cursor-pointer">
@@ -55,9 +56,9 @@
                     document.addEventListener("DOMContentLoaded", function() {
                         const description = document.getElementById('job-description');
                         const btn = document.getElementById('read-more-btn');
-                
+
                         let isExpanded = false;
-                
+
                         btn.addEventListener('click', function() {
                             isExpanded = !isExpanded;
                             if (isExpanded) {
@@ -69,8 +70,42 @@
                             }
                         });
                     });
-                </script>                   
+                </script>
             </div>
         </div>
     </div>
+
+    <div class="flex items-center space-x-2 space-x-reverse mt-4">
+        <div class="size-7">
+            <svg viewBox="0 0 69 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M3.5 34C3.5 19.3864 3.5 12.0797 8.03986 7.53986C12.5797 3 19.8864 3 34.5 3C49.1134 3 56.4204 3 60.96 7.53986C65.5 12.0797 65.5 19.3864 65.5 34C65.5 48.6134 65.5 55.9204 60.96 60.46C56.4204 65 49.1134 65 34.5 65C19.8864 65 12.5797 65 8.03986 60.46C3.5 55.9204 3.5 48.6134 3.5 34Z"
+                    stroke="black" stroke-width="5.5" />
+                <path opacity="0.5"
+                    d="M46.8992 27.7999C50.3234 27.7999 53.0992 25.0241 53.0992 21.5999C53.0992 18.1757 50.3234 15.3999 46.8992 15.3999C43.4751 15.3999 40.6992 18.1757 40.6992 21.5999C40.6992 25.0241 43.4751 27.7999 46.8992 27.7999Z"
+                    stroke="black" stroke-width="5.5" />
+                <path opacity="0.5"
+                    d="M12.8008 38.0519L15.3134 35.7182C18.1842 33.0519 22.6687 33.2016 25.3554 36.0533L33.5627 44.7655C35.2311 46.5363 37.9622 46.775 39.9125 45.3201C42.7226 43.2236 46.6354 43.462 49.1706 45.8837L56.2008 52.6002"
+                    stroke="black" stroke-width="5.5" stroke-linecap="round" />
+            </svg>
+        </div>
+        <div class="shrink-0">گالری</div>
+        <div class="w-full h-1 bg-black"></div>
+    </div>
+
+    <div class="flex items-center m-2">
+        <div class="h-10 w-10 ml-2 overflow-hidden rounded-full">
+            {{ $job->photo }}
+        </div>
+        <p class=" text-neutral-700 text-base font-bold">
+            محیط کار محمد حسین
+        </p>
+    </div>
+
+    <div class="m-2 grid grid-cols-2">
+        <div class="object-cover overflow-hidden rounded-md w-full h-full border border-neutral-600">
+            {{ $job->photo }}
+        </div>
+    </div>
+
 </x-site-layout>
