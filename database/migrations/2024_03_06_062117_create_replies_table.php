@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('replies', function (Blueprint $table) {
             $table->id();
             $table->text('body');
+            $table->string('name');
             $table->dateTime('date_written')->nullable();
             $table->foreignId('job_id')->constrained();
             $table->unsignedBigInteger('user_id');
