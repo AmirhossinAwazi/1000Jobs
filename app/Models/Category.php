@@ -21,6 +21,6 @@ class Category extends Model
     // }
 
     public function job():BelongsTo{
-        return $this->belongsBelongsTo(job::class);
+        return $this->belongsTo(job::class);
     }
 }
