@@ -41,10 +41,9 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Job $job)
+    public function show(Job $job): View
     {
-        $comments = Comment::all();
-    
+        $comments = $job->comments;
         return view('job.view', ['job' => $job, 'comments' => $comments]);
     }
 
