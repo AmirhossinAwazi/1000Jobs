@@ -131,8 +131,8 @@
             </div>
             <div class="px-4 py-2 bg-white rounded-t-lg">
                 <label for="comment" class="sr-only">نظرتان</label>
-                <textarea id="comment" name="body" rows="3" class="w-full px-0 text-xl text-gray-900 bg-white border-0 focus:ring-0"
-                    placeholder="نظرتان را بنویسید" required /></textarea>
+                <textarea id="comment" name="body" rows="3"
+                    class="w-full px-0 text-xl text-gray-900 bg-white border-0 focus:ring-0" placeholder="نظرتان را بنویسید" required /></textarea>
             </div>
             <div class="flex items-center justify-between px-3 py-2 border-t">
                 <button type="submit"
@@ -143,17 +143,19 @@
         </div>
     </form>
 
-    <div>
-        @foreach($comments as $comment)
-            <div class="mt-6 p-4 border rounded-lg bg-gray-100">
-                <div class="flex gap-2 text-sm text-gray-500">
-                    <div>{{ $comment->lastname }} said</div>
-                    <div>{{ $comment->body }}</div>
-                    <div>{{ $job->photo }}</div>
-                    <div>{{ $comment->created_at->diffForHumans() }}</div>
+    <div class="pt-5">
+        @foreach ($comments as $comment)
+            <div class="w-72 h-14 relative">
+                <div
+                    class="w-32 h-4 left-[89.40px] top-[24.65px] absolute text-neutral-400 text-xs font-light leading-normal">
+                    {{ $comment->created_at->diffForHumans() }}</div>
+                <div class="w-56 h-6 left-0 top-0 absolute text-neutral-700 text-xs font-medium">
+                    {{ $comment->lastname }}</div>
+                <div class="w-14 h-14 left-[223.50px] top-[1.54px] overflow-hidden absolute rounded-full">
+                    {{ $job->photo }}
                 </div>
-                <div class="mt-2 text-lg">{{ $comment->body }}</div>
             </div>
+            <div class="break-all p-3">{{ $comment->body }}</div>
         @endforeach
     </div>
 
