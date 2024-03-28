@@ -143,7 +143,7 @@
         </div>
     </form>
 
-    {{-- <div>
+    <div>
         @foreach($comments as $comment)
             <div class="mt-6 p-4 border rounded-lg bg-gray-100">
                 <div class="flex gap-2 text-sm text-gray-500">
@@ -152,10 +152,9 @@
                     <div>{{ $job->photo }}</div>
                     <div>{{ $comment->created_at->diffForHumans() }}</div>
                 </div>
-
                 <div class="mt-2 text-lg">{{ $comment->body }}</div>
             </div>
         @endforeach
-    </div> --}}
+    </div>
 
 </x-site-layout>
