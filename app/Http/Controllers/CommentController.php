@@ -5,29 +5,25 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCommentRequest;
 use App\Models\Comment;
 use App\Models\Job;
-use App\Models\User;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
-use Illuminate\Support\Facades\Redirect;
 
 class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $comments = Comment::all();
-        return view('job.view', [
-            'comments' => $comments,
-            
-        ]);
+        return view('job.view')->with('comments', $comments);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         return view('job.view');
     }
@@ -35,21 +31,21 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCommentRequest $request, Job $job, User $user)
+    public function store(StoreCommentRequest $request, Job $job): RedirectResponse
     {
-        // Comment::create($request->validated());
-
         $job->comments()->create($request->validated());
+
+        return redirect(route('comment.index'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Comment $Comment)
+    public function show(Job $job)
     {
-        return view('job.view',[
-            'comment' => $Comment,
-        ]);
+        $comments = Comment::all();
+    
+        return view('job.view', ['job' => $job, 'comments' => $comments]);
     }
 
     /**
