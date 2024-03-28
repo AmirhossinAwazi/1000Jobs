@@ -121,12 +121,12 @@
     </div>
 
 
-    <form form action="#" method="post">
+    <form action="{{ route('comment.store', ['user' => $user, 'job' => $job]) }}" method="post">
         @csrf
         <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
             <div>
-                <label for="username"></label>
-                <input id="username" name="username" type="username" placeholder="نام و نام خانوادگی خود را وارد کنید"
+                <label for="lastname"></label>
+                <input id="lastname" name="lastname" type="username" placeholder="نام و نام خانوادگی خود را وارد کنید"
                     class="block border border-gray-400 rounded-md h-12 w-full" required />
             </div>
             <div class="px-4 py-2 bg-white rounded-t-lg">
@@ -142,5 +142,20 @@
             </div>
         </div>
     </form>
+
+    {{-- <div>
+        @foreach($comments as $comment)
+            <div class="mt-6 p-4 border rounded-lg bg-gray-100">
+                <div class="flex gap-2 text-sm text-gray-500">
+                    <div>{{ $comment->lastname }} said</div>
+                    <div>{{ $comment->body }}</div>
+                    <div>{{ $job->photo }}</div>
+                    <div>{{ $comment->created_at->diffForHumans() }}</div>
+                </div>
+
+                <div class="mt-2 text-lg">{{ $comment->body }}</div>
+            </div>
+        @endforeach
+    </div> --}}
 
 </x-site-layout>
