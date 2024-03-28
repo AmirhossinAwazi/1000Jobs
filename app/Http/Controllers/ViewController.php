@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Job;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -37,8 +38,10 @@ class ViewController extends Controller
      */
     public function show(Job $job, User $user)
     {
+        $comments = $job->comments;
         return view('job.view', [
             'job' => $job,
+            'comments' => $comments,
             'user' =>$user,
         ]);
     }
