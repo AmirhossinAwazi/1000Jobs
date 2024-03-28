@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminJobController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [SiteController::class, 'index'])->name('home');
 
 Route::get('/view/{job}', [ViewController::class,'show'])->name('view');
+
+Route::resource('/job/{job}/comment', CommentController::class);
 
 Route::resource('/SAQ', JobController::class);
 
