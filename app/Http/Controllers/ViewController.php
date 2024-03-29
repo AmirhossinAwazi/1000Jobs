@@ -38,7 +38,8 @@ class ViewController extends Controller
      */
     public function show(Job $job, User $user)
     {
-        $comments = $job->comments;
+        // $comments = $job->comments()->with('replies')->get();
+        $comments = $job->comments()->with('user', 'replies.user')->get();
         return view('job.view', [
             'job' => $job,
             'comments' => $comments,
