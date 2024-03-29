@@ -156,9 +156,38 @@
                         {{ $job->photo }}
                     </div>
                 </div>
-                <div class="break-all p-3 text-justify text-neutral-700 text-xs font-light leading-normal">{{ $comment->body }}</div>
+                <div class="break-all p-3 text-justify text-neutral-700 text-xs font-light leading-normal">
+                    {{ $comment->body }}
+                </div>
+
+                <form action="{{ route('comment.reply', ['job' => $job, 'comment' => $comment]) }}" method="POST" class="p-3">
+                    @csrf
+                    <div>
+                        <label for="reply" class="sr-only">Reply:</label>
+                        <textarea name="reply" id="reply" rows="2" class="w-full px-4 py-2 border rounded-lg" placeholder="Reply to this comment"></textarea>
+                    </div>
+                    <div>
+                        <label for="lastname"></label>
+                        <textarea name="lastname" id="lastname">{{ $comment->lastname }}</textarea>
+                    </div>
+                    <div class="mt-2">
+                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Post Reply</button>
+                    </div>
+                </form>
+                
+                @if ($comment->replies->count() > 0)
+                    <div class="replies">
+                        <strong>Replies:</strong>
+                        @foreach ($comment->replies as $reply)
+                            <div class="reply">
+                                <p>{{ $reply->body }}</p>
+                                <p>Posted by: {{ $reply->lastname }}</p>
+                                <p>Posted at: {{ $reply->created_at }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
             </div>
         @endforeach
     </div>
-
 </x-site-layout>
