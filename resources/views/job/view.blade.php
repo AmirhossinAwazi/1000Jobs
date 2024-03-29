@@ -94,7 +94,7 @@
     </div>
 
     <div class="flex items-center m-2">
-        <div class="h-10 w-10 ml-2 overflow-hidden rounded-full">
+        <div class="h-fit w-10 ml-2 overflow-hidden rounded-full">
             {{ $job->photo }}
         </div>
         <p class=" text-neutral-700 text-base font-bold">
@@ -145,17 +145,19 @@
 
     <div class="pt-5">
         @foreach ($comments as $comment)
-            <div class="w-72 h-14 relative">
-                <div
-                    class="w-32 h-4 left-[89.40px] top-[24.65px] absolute text-neutral-400 text-xs font-light leading-normal">
-                    {{ $comment->created_at->diffForHumans() }}</div>
-                <div class="w-56 h-6 left-0 top-0 absolute text-neutral-700 text-xs font-medium">
-                    {{ $comment->lastname }}</div>
-                <div class="w-14 h-14 left-[223.50px] top-[1.54px] overflow-hidden absolute rounded-full">
-                    {{ $job->photo }}
+            <div class="mt-3 bg-neutral-50 rounded-lg border border-neutral-700">
+                <div class="w-72 h-14 m-1 relative">
+                    <div
+                        class="w-32 h-4 left-[89.40px] top-[24.65px] absolute text-neutral-400 text-xs font-light leading-normal">
+                        {{ $comment->created_at->diffForHumans() }}</div>
+                    <div class="pr-2 w-56 h-6 left-0 top-0 absolute text-neutral-700 text-xs font-medium">
+                        {{ $comment->lastname }}</div>
+                    <div class="w-fit h-fit left-[223.50px] top-[1.54px] overflow-hidden absolute rounded-full">
+                        {{ $job->photo }}
+                    </div>
                 </div>
+                <div class="break-all p-3 text-justify text-neutral-700 text-xs font-light leading-normal">{{ $comment->body }}</div>
             </div>
-            <div class="break-all p-3">{{ $comment->body }}</div>
         @endforeach
     </div>
 
