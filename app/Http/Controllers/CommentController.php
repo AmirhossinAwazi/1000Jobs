@@ -12,6 +12,23 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+
+    public function reply(Request $request, Job $job, Comment $comment)
+    {
+        $request->validate([
+            'reply' => 'required|string',
+            'lastname' => 'nullable|string',
+        ]);
+        $reply = new Comment();
+        $reply->body = $request->input('reply');
+        $reply->lastname = $request->input('lastname');
+        $reply->parent_id = $comment->id;
+        $reply->job_id = $job->id;
+        $reply->save();
+
+        return redirect()->back()->with('success', 'Reply posted successfully!');
+    }
+
     /**
      * Display a listing of the resource.
      */
