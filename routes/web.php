@@ -15,6 +15,8 @@ Route::get('/view/{job}', [ViewController::class,'show'])->name('view');
 
 Route::resource('/job/{job}/comment', CommentController::class);
 
+Route::post('/jobs/{job}/comments/{comment}/reply', [CommentController::class, 'reply'])->name('comment.reply');
+
 Route::resource('/SAQ', JobController::class);
 
 Route::resource('/job', AdminJobController::class);
