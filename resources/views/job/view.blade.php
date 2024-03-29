@@ -160,29 +160,45 @@
                     {{ $comment->body }}
                 </div>
 
-                <form action="{{ route('comment.reply', ['job' => $job, 'comment' => $comment]) }}" method="POST" class="p-3">
+                <form action="{{ route('comment.reply', ['job' => $job, 'comment' => $comment]) }}" method="POST"
+                    class="p-3">
                     @csrf
                     <div>
-                        <label for="reply" class="sr-only">Reply:</label>
-                        <textarea name="reply" id="reply" rows="2" class="w-full px-4 py-2 border rounded-lg" placeholder="Reply to this comment"></textarea>
+                        <label for="reply" class="sr-only">ریپلای :</label>
+                        <textarea name="reply" id="reply" rows="2" class="w-full px-4 py-2 border rounded-lg"
+                            placeholder="به این نظر پاسخ دهید"></textarea>
                     </div>
                     <div>
-                        <label for="lastname"></label>
-                        <textarea name="lastname" id="lastname">{{ $comment->lastname }}</textarea>
+                        <label for="lastname" class="sr-only">نام</label>
+                        <textarea name="lastname" id="lastname" rows="2" class="w-full px-4 py-2 border rounded-lg">نام خود را وارد کنید</textarea>
                     </div>
                     <div class="mt-2">
-                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-lg">Post Reply</button>
+                        <button type="submit"
+                            class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-amber-400 rounded-lg focus:ring-4 focus:ring-amber-200 hover:bg-amber-500">ارسال
+                            پاسخ</button>
                     </div>
                 </form>
-                
+
                 @if ($comment->replies->count() > 0)
                     <div class="replies">
-                        <strong>Replies:</strong>
                         @foreach ($comment->replies as $reply)
-                            <div class="reply">
-                                <p>{{ $reply->body }}</p>
-                                <p>Posted by: {{ $reply->lastname }}</p>
-                                <p>Posted at: {{ $reply->created_at }}</p>
+                            <div class="reply m-3 bg-neutral-50 rounded-lg border border-neutral-700">
+                                <div class="w-72 h-14 m-1 relative">
+                                    <div
+                                        class="w-32 h-4 left-[89.40px] top-[24.65px] absolute text-neutral-400 text-xs font-light leading-normal">
+                                        {{ $reply->created_at->diffForHumans() }}</div>
+                                    <div
+                                        class="pr-2 w-56 h-6 left-0 top-0 absolute text-neutral-700 text-xs font-medium">
+                                        {{ $reply->lastname }}</div>
+                                    <div
+                                        class="w-fit h-fit left-[223.50px] top-[1.54px] overflow-hidden absolute rounded-full">
+                                        {{ $job->photo }}
+                                    </div>
+                                </div>
+                                <div
+                                    class="break-all p-3 text-justify text-neutral-700 text-xs font-light leading-normal">
+                                    {{ $reply->body }}
+                                </div>
                             </div>
                         @endforeach
                     </div>
