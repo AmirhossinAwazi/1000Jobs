@@ -20,7 +20,7 @@ class Category extends Model
     //     return $this->hasMany(job::class);
     // }
 
-    public function job():BelongsTo{
-        return $this->belongsTo(job::class);
+    public function jobs():BelongsToMany{
+        return $this->belongsToMany(job::class);
     }
 }
