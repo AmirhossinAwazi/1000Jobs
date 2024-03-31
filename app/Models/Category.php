@@ -16,11 +16,17 @@ class Category extends Model
         'title',
     ];
 
+<<<<<<< HEAD
     // public function job():HasMany{
     //     return $this->hasMany(job::class);
     // }
 
     public function jobs():BelongsToMany{
         return $this->belongsToMany(job::class);
+=======
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+>>>>>>> refs/remotes/origin/main
     }
 }

@@ -3,17 +3,24 @@
 use App\Http\Controllers\AdminJobController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
 
+<<<<<<< HEAD
 Route::get('/category/{category}', [SiteController::class, 'showCategoryJobs'])->name('category');
 
 Route::get('/', [SiteController::class, 'index'])->name('home');
+=======
+Route::get('/', [MainController::class, 'home'])->name('home');
+//
+Route::get('/categories/{category}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
+>>>>>>> refs/remotes/origin/main
 
-Route::get('/view/{job}', [ViewController::class,'show'])->name('view');
+Route::get('/view/{job}', [ViewController::class, 'show'])->name('view');
 
 Route::resource('/job/{job}/comment', CommentController::class);
 
@@ -29,4 +36,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
