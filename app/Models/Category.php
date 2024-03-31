@@ -16,11 +16,8 @@ class Category extends Model
         'title',
     ];
 
-    // public function job():HasMany{
-    //     return $this->hasMany(job::class);
-    // }
-
-    public function job():BelongsTo{
-        return $this->belongsTo(job::class);
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
     }
 }
