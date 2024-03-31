@@ -16,23 +16,21 @@
     </div>
 
     <div>
-        @foreach ($categories as $category)
-            <a href="{{ route('category.show',$category->id) }}" class="w-full bg-white border-2 border-zinc-100">
+        @foreach ($jobs as $job)
+            <a href="{{ route('view',['job'=>$job->id]) }}" class="w-full bg-white border-2 border-zinc-100">
                 <div class="flex">
-                    <img class="w-full h-full object-cover rounded-2xl"
-                         src="{{ $category->jobs->first->photo?->original_url }}"
-                         alt="{{ $category->title }}">
+                    <img class="w-full h-full object-cover rounded-2xl" src="{{ $job->photo?->original_url }}" alt="{{ $job->category->title }}">
                 </div>
 
                 <div class="flex justify-between items-center p-3">
                     <div class="text-right text-black text-lg font-bold">
-                        <p>{{$category->title }}</p>
+                        <p>{{ $job->category->title }}</p>
                     </div>
 
                     <div class="flex text-neutral-600 text-sm font-bold">
-                        {{ $category->jobs->min('min_income_range')?->min_income_range }}
+                        {{ $job->min_income_range }}
                         <p>تا</p>
-                        {{ $category->jobs->min('max_income_range')?->max_income_range }}
+                        {{ $job->max_income_range }}
                         <p>م تومن</p>
                     </div>
                 </div>
