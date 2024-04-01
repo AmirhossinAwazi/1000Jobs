@@ -9,7 +9,7 @@ use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/category/{category}', [SiteController::class, 'showCategoryJobs'])->name('category');
+Route::get('/categories/{category}', [SiteController::class, 'show'])->name('category');
 
 Route::get('/', [SiteController::class, 'index'])->name('home');
 
