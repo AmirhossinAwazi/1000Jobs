@@ -38,7 +38,7 @@
                 </svg>
 
                 <p class="m-2 text-neutral-700 text-base font-bold">
-                    تجربه محمد حسین
+                    تجربه {{ $job->user->name }}
                 </p>
             </div>
 
@@ -98,7 +98,7 @@
             {{ $job->photo }}
         </div>
         <p class=" text-neutral-700 text-base font-bold">
-            محیط کار محمد حسین
+            محیط کار {{ $job->user->name }}
         </p>
     </div>
 
