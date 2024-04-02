@@ -36,18 +36,14 @@ class JobController extends Controller
     {
         $user = User::Create($request->validated());
         // $user = User::firstOrCreate($request->validated(), ['phone_number', 'category_id']);
-
-
         $job = $user->job()->create(
             [
                 ...$request->validated(),
                 'revenue_model' => implode(',', $request->input('revenue_model')),
             ]
         );
-
         $job->addMediaFromRequest('photo')->toMediaCollection('images');
         // $job->addMediaFromRequest('voice')->toMediaCollection('voice');
-
         return to_route('home');
     }
 
