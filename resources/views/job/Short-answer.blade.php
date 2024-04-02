@@ -19,13 +19,14 @@
                         <label for="category_id">عنوان شغلی‌ات رو وارد کن</label>
                         <x-required-svg />
                     </div>
-                   
-                        <select name="category_id" id="category_id"  class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border text-center">
-                            @foreach($categories as $category)
-                                <option value={{$category->id}}>{{$category->title}}</option>
-                            @endforeach
-                        </select>
-                       
+
+                    <select name="category_id" id="category_id"
+                        class="mt-2 w-full p-2 rounded-lg bg-white text-neutral-700 border text-center">
+                        @foreach ($categories as $category)
+                            <option value={{ $category->id }}>{{ $category->title }}</option>
+                        @endforeach
+                    </select>
+
                 </div>
                 <div>
                     <div class="flex items-center">
@@ -41,21 +42,24 @@
                     <div class="flex space-x-3 space-x-reverse mt-2">
 
                         <div>
-                            <input id="bad" type="radio" class="peer hidden" name="job_datisfaction" value="1">
+                            <input id="bad" type="radio" class="peer hidden" name="job_datisfaction"
+                                value="1">
                             <label for="bad"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
                                 ناراضی‌ام
                             </label>
                         </div>
                         <div>
-                            <input id="not-bad" type="radio" class="peer hidden" name="job_datisfaction" value="1">
+                            <input id="not-bad" type="radio" class="peer hidden" name="job_datisfaction"
+                                value="1">
                             <label for="not-bad"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
                                 بد نیست
                             </label>
                         </div>
                         <div>
-                            <input id="good" type="radio" class="peer hidden" name="job_datisfaction" value="1">
+                            <input id="good" type="radio" class="peer hidden" name="job_datisfaction"
+                                value="1">
                             <label for="good"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">
                                 راضی‌ام
@@ -106,7 +110,8 @@
 
                     <div>
                         <div class="flex items-center">
-                            <input id="freelancer-checkbox" type="checkbox" class="peer hidden" name="revenue_model[]" value="Freelancer">
+                            <input id="freelancer-checkbox" type="checkbox" class="peer hidden" name="revenue_model[]"
+                                value="Freelancer">
                             <label for="freelancer-checkbox"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">فریلنسری</label>
                         </div>
@@ -114,7 +119,8 @@
 
                     <div>
                         <div class="flex items-center">
-                            <input id="entrepreneur-checkbox" type="checkbox" class="peer hidden" name="revenue_model[]" value="Entrepreneur">
+                            <input id="entrepreneur-checkbox" type="checkbox" class="peer hidden" name="revenue_model[]"
+                                value="Entrepreneur">
                             <label for="entrepreneur-checkbox"
                                 class="bg-white border rounded-lg text-center px-3 py-1 peer-checked:bg-green-200 peer-checked:border-green-500">کارآفرینی</label>
                         </div>
@@ -197,7 +203,24 @@
                         accept=".png,.jpeg,.jpg" />
                     <x-input-error class="mt-2" :messages="$errors->get('photo')" />
                 </div>
-                {{-- show the photo --}}
+                <div class="w-fit h-full flex-none rounded-3xl border mt-5 object-cover overflow-hidden">
+                    <img id="imagePreview" src="#" alt="Image Preview"
+                        style="display: none; margin-top: 10px; max-width: 100%;">
+                </div>
+                <script>
+                    document.getElementById('photo').addEventListener('change', function(event) {
+                        var file = event.target.files[0];
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            var imagePreview = document.getElementById('imagePreview');
+                            imagePreview.src = e.target.result;
+                            imagePreview.style.display = 'block';
+                        };
+
+                        reader.readAsDataURL(file);
+                    });
+                </script>
             </div>
 
             <div>
@@ -236,12 +259,14 @@
             <div class="mt-3">
                 <label for="phone-number" class="text-neutral-700 text-base font-bold leading-loose">شماره تلفن همراهت
                     رو وارد کن</label>
-                <input name="phone_number" type="tel" class="w-full p-2 rounded-lg bg-white text-neutral-700 border">
+                <input name="phone_number" type="tel"
+                    class="w-full p-2 rounded-lg bg-white text-neutral-700 border">
             </div>
         </div>
 
         <div>
-            <button type="submit" class="w-20 h-10 m-2 bg-blue-500 hover:bg-blue-700 rounded-lg text-center text-white font-semibold">
+            <button type="submit"
+                class="w-20 h-10 m-2 bg-blue-500 hover:bg-blue-700 rounded-lg text-center text-white font-semibold">
                 {{ __('Save') }}
             </button>
         </div>
