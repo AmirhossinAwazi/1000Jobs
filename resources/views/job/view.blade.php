@@ -166,13 +166,13 @@
                     class="p-3">
                     @csrf
                     <div>
+                        <label for="lastname" class="sr-only">نام</label>
+                        <textarea name="lastname" id="lastname" rows="2" class="w-full px-4 py-2 border rounded-lg" placeholder="نام خود را وارد کنید"></textarea>
+                    </div>
+                    <div>
                         <label for="reply" class="sr-only">ریپلای :</label>
                         <textarea name="reply" id="reply" rows="2" class="w-full px-4 py-2 border rounded-lg"
                             placeholder="به این نظر پاسخ دهید"></textarea>
-                    </div>
-                    <div>
-                        <label for="lastname" class="sr-only">نام</label>
-                        <textarea name="lastname" id="lastname" rows="2" class="w-full px-4 py-2 border rounded-lg" placeholder="نام خود را وارد کنید"></textarea>
                     </div>
                     <div class="mt-2">
                         <button type="submit"
