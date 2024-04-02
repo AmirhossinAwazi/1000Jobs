@@ -32,20 +32,38 @@ class JobController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(StoreJobRequest $request)
     {
-        $user = User::Create($request->validated());
-        // $user = User::firstOrCreate($request->validated(), ['phone_number', 'category_id']);
-        $job = $user->job()->create(
-            [
-                ...$request->validated(),
-                'revenue_model' => implode(',', $request->input('revenue_model')),
-            ]
-        );
-        $job->addMediaFromRequest('photo')->toMediaCollection('images');
-        // $job->addMediaFromRequest('voice')->toMediaCollection('voice');
-        return to_route('home');
+        $user = User::create($request->validated());
+        $job = $user->job()->create([
+            ...$request->validated(),
+            'revenue_model' => implode(',', $request->input('revenue_model')),
+        ]);
+        if ($request->hasFile('photos')) {
+            foreach ($request->file('photos') as $photo) {
+                $job->addMedia($photo)->toMediaCollection('images');
+            }
+        }
+
+        return redirect()->route('home');
     }
+
+
+    // public function store(StoreJobRequest $request)
+    // {
+    //     $user = User::Create($request->validated());
+    //     // $user = User::firstOrCreate($request->validated(), ['phone_number', 'category_id']);
+    //     $job = $user->job()->create(
+    //         [
+    //             ...$request->validated(),
+    //             'revenue_model' => implode(',', $request->input('revenue_model')),
+    //         ]
+    //     );
+    //     $job->addMediaFromRequest('photo')->toMediaCollection('images');
+    //     // $job->addMediaFromRequest('voice')->toMediaCollection('voice');
+    //     return to_route('home');
+    // }
 
     /**
      * Display the specified resource.
