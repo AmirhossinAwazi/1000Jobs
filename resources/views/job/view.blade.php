@@ -162,7 +162,7 @@
                     {{ $comment->body }}
                 </div>
 
-                <form action="{{ route('comment.reply', ['job' => $job, 'comment' => $comment]) }}" method="POST"
+                <form action="{{ route('comment.reply', ['job' => $job, 'comment' => $comment->id]) }}" method="POST"
                     class="p-3">
                     @csrf
                     <div>
