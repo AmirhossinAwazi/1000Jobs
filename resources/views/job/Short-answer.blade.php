@@ -147,7 +147,7 @@
                 <p class="text-neutral-700 text-4xl font-black">توضیح بده دقیقاً توی این شغل، تو چه کار می‌کنی و چطور
                     با
                     این شغل آشنا شدی؟</p>
-                <div class="flex mt-2 w-fit h-11 items-center border border-neutral-700 rounded-2xl shadow-xl">
+                {{-- <div class="flex mt-2 w-fit h-11 items-center border border-neutral-700 rounded-2xl shadow-xl">
                     <div>
                         <p
                             class=" p-1 w-36 h-9 text-neutral-700 bg-neutral-400 bg-opacity-30 text-base font-bold rounded-xl">
@@ -157,7 +157,7 @@
                     <div class="ml-2">
                         <x-voice-svg />
                     </div>
-                </div>
+                </div> --}}
                 <div>
                     {{-- Sound recording --}}
                 </div>
@@ -195,7 +195,35 @@
                 <div class="w-full h-1 bg-amber-300"></div>
             </div>
 
-            <div class="m-2">
+            <div class="mt-3">
+                <input id="photos" name="photos[]" type="file" multiple class="mt-1 block w-full" accept=".png,.jpeg,.jpg" />
+                <x-input-error class="mt-2" :messages="$errors->get('photos.*')" />
+            </div>
+            <div class="mt-5 grid grid-cols-4 gap-4" id="imagePreviewContainer">
+                <!-- Preview images will be dynamically added here -->
+            </div>
+            
+            <script>
+                document.getElementById('photos').addEventListener('change', function(event) {
+                    var files = event.target.files;
+                    var previewContainer = document.getElementById('imagePreviewContainer');
+                    previewContainer.innerHTML = ''; // Clear previous previews
+            
+                    for (var i = 0; i < files.length; i++) {
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            var imagePreview = document.createElement('img');
+                            imagePreview.src = e.target.result;
+                            imagePreview.className = 'w-full h-auto rounded border';
+                            previewContainer.appendChild(imagePreview);
+                        };
+                        reader.readAsDataURL(files[i]);
+                    }
+                });
+            </script>
+            
+
+            {{-- <div class="m-2">
                 <p class="text-neutral-700 text-4xl font-black">با چندتا عکس فضای کاریت رو نشونمون بده</p>
 
                 <div class="mt-3">
@@ -221,7 +249,7 @@
                         reader.readAsDataURL(file);
                     });
                 </script>
-            </div>
+            </div> --}}
 
             <div>
                 <li>از محیط کاریت</li>
