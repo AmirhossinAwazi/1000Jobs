@@ -102,10 +102,12 @@
         </p>
     </div>
 
-    <div class="m-2 grid grid-cols-2">
-        <div class="object-cover overflow-hidden rounded-md w-full h-full border border-neutral-600">
-            {{ $job->photo }}
+    <div class="m-2 grid grid-cols-2 gap-3">
+        @foreach($job->getMedia('images') as $photo)
+        <div class="object-cover overflow-hidden rounded-md w-fit h-fit border border-neutral-600">
+            <img src="{{ $photo->getUrl() }}" alt="Job Photo" class="w-full h-full object-cover">
         </div>
+        @endforeach
     </div>
 
     <div class="flex items-center space-x-2 space-x-reverse mt-4">
