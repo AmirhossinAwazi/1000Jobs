@@ -11,19 +11,19 @@
         <div class="shrink-0">تفصیلی</div>
         <div class="w-full h-1 bg-black"></div>
     </div>
-    <div>
+    {{-- <div>
         <div class="flex items-center p-1">
             <div class="size-3 bg-black shrink-0 rounded ml-2"></div>
             <p class="text-neutral-700 text-base font-bold">{{ $job->category->title }} دقیقاً چه کار می‌کنن؟</p>
         </div>
-    </div>
+    </div> --}}
 
     <div class="mt-5">
-        <div class="flex w-fit h-full">
+        {{-- <div class="flex w-fit h-full">
             <div class="object-cover overflow-hidden w-full h-full rounded-3xl border border-neutral-600">
-                {{-- {{ $job->photo }} --}}
+                {{ $job->photo }}
             </div>
-        </div>
+        </div> --}}
 
         <div class="mt-5 rounded-md border border-black p-4">
             <div class="flex items-center">
