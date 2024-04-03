@@ -208,6 +208,50 @@
                 document.getElementById('photos').addEventListener('change', function(event) {
                     var files = event.target.files;
                     var previewContainer = document.getElementById('imagePreviewContainer');
+                    // Check if adding files would exceed the limit of 4 photos
+                    if (previewContainer.children.length + files.length > 4) {
+                        alert('You can only add up to 4 photos.');
+                        return;
+                    }
+
+                    for (var i = 0; i < files.length; i++) {
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            var imagePreview = document.createElement('div');
+                            imagePreview.className = 'relative';
+                            var img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.className = 'w-full h-auto rounded border';
+                            imagePreview.appendChild(img);
+                            var deleteButton = document.createElement('button');
+                            deleteButton.textContent = 'Delete';
+                            deleteButton.className = 'absolute top-0 right-0 bg-red-500 text-white px-2 py-1 rounded';
+                            deleteButton.addEventListener('click', function() {
+                                // Remove the parent element (containing both image and delete button)
+                                this.parentNode.remove();
+                            });
+                            imagePreview.appendChild(deleteButton);
+                            previewContainer.appendChild(imagePreview);
+                        };
+                        reader.readAsDataURL(files[i]);
+                    }
+                });
+            </script>
+
+
+            {{-- <div class="mt-3">
+                <input id="photos" name="photos[]" type="file" multiple class="mt-1 block w-full"
+                    accept=".png,.jpeg,.jpg" />
+                <x-input-error class="mt-2" :messages="$errors->get('photos.*')" />
+            </div>
+            <div class="mt-5 grid grid-cols-3 gap-4" id="imagePreviewContainer">
+                <!-- Preview images will be dynamically added here -->
+            </div>
+
+            <script>
+                document.getElementById('photos').addEventListener('change', function(event) {
+                    var files = event.target.files;
+                    var previewContainer = document.getElementById('imagePreviewContainer');
                     previewContainer.innerHTML = ''; // Clear previous previews
 
                     for (var i = 0; i < files.length; i++) {
@@ -232,7 +276,7 @@
                         reader.readAsDataURL(files[i]);
                     }
                 });
-            </script>
+            </script> --}}
             <div>
                 <li>از محیط کاریت</li>
                 <li>از فعالیت های تخصصی که انجام میدی</li>
