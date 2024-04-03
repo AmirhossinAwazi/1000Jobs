@@ -1,5 +1,5 @@
 <x-site-layout>
-    <p class="text-right text-neutral-700 text-4xl font-black leading-loose">
+    <p class=" text-neutral-700 text-4xl font-black leading-loose">
         معرفی شغل {{ $job->user->name }} در {{ $job->category->title }}
     </p>
     <div class="flex items-center space-x-2 space-x-reverse mt-4">
