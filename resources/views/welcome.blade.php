@@ -9,9 +9,9 @@
                     فهرست مشاغل
                 </div>
             </div>
-            <div class="flex justify-items-start pl-2 mt-2 text-lg">
+            {{-- <div class="flex justify-items-start pl-2 mt-2 text-lg">
                 <x-search-svg />
-            </div>
+            </div> --}}
         </div>
     </div>
 
