@@ -1,5 +1,7 @@
 <x-site-layout>
-    <p class="text-right text-neutral-700 text-4xl font-black leading-loose">معرفی شغل {{ $job->category->title }}</p>
+    <p class="text-right text-neutral-700 text-4xl font-black leading-loose">
+        معرفی شغل {{ $job->user->name }} در {{ $job->category->title }}
+    </p>
     <div class="flex items-center space-x-2 space-x-reverse mt-4">
         <div class="size-7">
             <svg viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
