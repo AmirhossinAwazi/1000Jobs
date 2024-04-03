@@ -94,9 +94,9 @@
     </div>
 
     <div class="flex items-center m-2">
-        <div class="h-fit w-10 ml-2 overflow-hidden rounded-full">
+        {{-- <div class="h-fit w-10 ml-2 overflow-hidden rounded-full">
             {{ $job->photo }}
-        </div>
+        </div> --}}
         <p class=" text-neutral-700 text-base font-bold">
             محیط کار {{ $job->user->name }}
         </p>
