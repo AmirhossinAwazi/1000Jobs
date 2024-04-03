@@ -21,7 +21,7 @@
     <div class="mt-5">
         <div class="flex w-fit h-full">
             <div class="object-cover overflow-hidden w-full h-full rounded-3xl border border-neutral-600">
-                {{ $job->photo }}
+                {{-- {{ $job->photo }} --}}
             </div>
         </div>
 
