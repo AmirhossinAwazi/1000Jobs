@@ -34,7 +34,7 @@ class StoreJobRequest extends FormRequest
             'photo.*' => ['image', 'mimes:jpeg,png,jpg', 'max:2048'],
             'name' => ['required', 'string', 'max:45'],
             'needs_advice' => ['nullable', 'boolean'],
-            'phone_number' => ['required', 'nullable', 'string', 'regex:/^(\+?98|0)?9\d{9}$/']
+            'phone_number' => ['required', 'nullable', 'string', 'regex:/^(\+?98|0)?9\d{9}$/', 'default:0']
         ];
     }
 }
