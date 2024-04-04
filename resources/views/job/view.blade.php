@@ -103,11 +103,27 @@
             محیط کار {{ $job->user->name }}
         </p>
     </div>
-
+    <style>
+        .enlarge-on-hover {
+            position: relative;
+        }
+    
+        .enlarge-on-hover:hover img {
+            transform: scale(1.2);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 25vw;
+            height: 25vh;
+            z-index: 9999;
+            object-fit: cover;
+        }
+    </style>
     <div class="m-2 grid grid-cols-2 gap-3">
         @foreach ($job->getMedia('images') as $photo)
-            <div class="object-cover overflow-hidden rounded-md w-fit h-fit border border-neutral-600">
-                <img src="{{ $photo->getUrl() }}" alt="Job Photo" class="w-full h-full object-cover">
+            <div class="enlarge-on-hover">
+                <img src="{{ $photo->getUrl() }}" alt="Job Photo" class="w-full h-full object-cover rounded-md border border-neutral-600">
             </div>
         @endforeach
     </div>
