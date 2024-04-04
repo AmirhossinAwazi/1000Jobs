@@ -24,7 +24,7 @@ class StoreJobRequest extends FormRequest
         return [
             'category_id' => ['required', 'exists:categories,id'],
             'experience_years' => ['required', 'integer'],
-            'job_datisfaction' => ['required', 'in:1,2,3'],
+            'job_datisfaction' => ['nullable', 'in:1,2,3'],
             'min_income_range' => ['required', 'integer'],
             'max_income_range' => ['required', 'integer'],
             'revenue_model' => ['required'],

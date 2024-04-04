@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained();
             $table->integer('experience_years');
-            $table->string('job_datisfaction'); 
+            $table->string('job_datisfaction')->nullable(); 
             $table->integer('min_income_range');
             $table->integer('max_income_range');
             $table->string('revenue_model');
