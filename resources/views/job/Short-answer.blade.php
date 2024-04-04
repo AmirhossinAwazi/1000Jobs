@@ -139,14 +139,15 @@
 
             <div class="flex items-center space-x-2 space-x-reverse mt-4">
                 <div class="size-4 bg-amber-300 shrink-0"></div>
-                <div class="shrink-0">توضیحات</div>
+                <div class="shrink-0 flex justify-center">توضیحات<x-required-svg /></div>
                 <div class="w-full h-1 bg-amber-300"></div>
             </div>
 
             <div class="m-2">
-                <p class="text-neutral-700 text-4xl font-black">توضیح بده دقیقاً توی این شغل، تو چه کار می‌کنی و چطور
-                    با
-                    این شغل آشنا شدی؟</p>
+                <p class="text-neutral-700 text-4xl font-black">
+                    توضیح بده دقیقاً توی این شغل، تو چه کار می‌کنی و چطور با این شغل آشنا شدی؟
+                </p>
+                {{-- <x-required-svg /> --}}
                 {{-- <div class="flex mt-2 w-fit h-11 items-center border border-neutral-700 rounded-2xl shadow-xl">
                     <div>
                         <p
@@ -164,8 +165,8 @@
 
                 <div class="mt-3">
                     <textarea name="description" id="description" cols="30" rows="15" type="text"
-                        placeholder="اگه سختت بود وویس بدی، اینجا متنی بنویس."
-                        class="w-full h-36 text-lg bg-white rounded-xl border border-neutral-400" required></textarea>
+                        placeholder="اینجا بنویس." class="w-full h-36 text-lg bg-white rounded-xl border border-neutral-400" required>
+                    </textarea>
                 </div>
 
                 <div class="m-3 text-neutral-700 text-base leading-loose">
