@@ -34,7 +34,8 @@ class CommentController extends Controller
      */
     public function index(Job $job, User $user): View
     {
-        $comments = Comment::all();
+        // $comments = Comment::all();
+        $comments = $job->comments()->whereNull('parent_id')->get();
         return view('job.view', [
             'job'=>$job,
             'user'=>$user
@@ -64,13 +65,14 @@ class CommentController extends Controller
      */
     public function show(Job $job): View
     {
-        $comments = $job->comments;
-        return view('job.view',
-        [
+        // Fetch only root comments (comments without a parent_id)
+        $comments = $job->comments()->whereNull('parent_id')->get();
+        return view('job.view', [
             'job' => $job,
             'comments' => $comments
         ]);
     }
+    
 
     /**
      * Show the form for editing the specified resource.

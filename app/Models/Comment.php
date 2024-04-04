@@ -17,16 +17,23 @@ class Comment extends Model
         'parent_id',
     ];
 
-    public function job(): BelongsTo{
+    public function job(): BelongsTo
+    {
         return $this->belongsTo(Job::class);
     }
 
-    public function user():BelongsTo{
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function replies(): HasMany{
+    public function replies(): HasMany
+    {
         return $this->hasMany(Comment::class, 'parent_id');
     }
 
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class)->whereNull('parent_id');
+    }
 }

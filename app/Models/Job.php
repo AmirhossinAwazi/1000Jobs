@@ -30,20 +30,28 @@ class Job extends Model implements HasMedia
         'moderated_at'
     ];
 
-    public function category():BelongsTo{
+    public function category(): BelongsTo
+    {
         return $this->belongsTo(Category::class);
     }
 
-    public function photo(){
-        return $this->morphOne(Media::class,'model')->where('collection_name','images');
+    public function photo()
+    {
+        return $this->morphOne(Media::class, 'model')->where('collection_name', 'images');
     }
 
-    public function user():BelongsTo{
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(user::class);
     }
 
-    public function comments():HasMany{
-        return $this->hasMany(Comment::class);
-    }
+    // public function comments(): HasMany
+    // {
+    //     return $this->hasMany(Comment::class);
+    // }
 
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class)->whereNull('parent_id');
+    }
 }
