@@ -38,7 +38,7 @@
         <a href="#">
             <div>
                 <img src="{{ asset('storage/images/lawyer.jpg') }}" alt="وکیل"
-                    class="w-full h-64 object-cover rounded-2xl">
+                    class="w-full h-full object-cover rounded-2xl">
             </div>
 
             <div class="flex justify-between items-center p-3">
