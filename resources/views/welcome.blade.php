@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="flex text-neutral-600 text-sm font-bold mt-5">
-                    <p>10 تا 45 م تومن</p>
+                    <p>بین ۷ تا ۴۵ میلیون تومان ماهانه</p>
                 </div>
             </div>
 
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="flex text-neutral-600 text-sm font-bold mt-5">
-                    <p>12 تا 20 م تومن</p>
+                    <p>بین ۲۰ تا ۴۰۰ میلیون ماهانه</p>
                 </div>
             </div>
         </a>
@@ -67,7 +67,7 @@
 
 
                 <div class="flex text-neutral-600 text-sm font-bold mt-5">
-                    <p>5 تا 15 م تومن</p>
+                    <p>بین ۶ تا ۲۵ میلیون ماهانه</p>
                 </div>
             </div>
         </a>
@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="flex text-neutral-600 text-sm font-bold mt-5">
-                    <p>20 تا 60 م تومن</p>
+                    <p>بین ۴ تا ۵۰ میلیون ماهانه</p>
                 </div>
             </div>
 
@@ -93,7 +93,7 @@
 
         <a href="#">
             <div>
-                <img src="{{ asset('storage/images/translator.png') }}" alt="مترجم"
+                <img src="{{ asset('storage/images/translator.jpg') }}" alt="مترجم"
                     class="w-full h-full object-cover rounded-2xl">
             </div>
 
@@ -104,7 +104,7 @@
                 </div>
 
                 <div class="flex text-neutral-600 text-sm font-bold mt-5">
-                    <p>80 تا 100 م تومن</p>
+                    <p>بین ۷ تا ۲۰ میلیون ماهانه</p>
                 </div>
             </div>
 
