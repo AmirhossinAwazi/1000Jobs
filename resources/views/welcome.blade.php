@@ -16,99 +16,24 @@
     </div>
 
     <div class="mt-5">
-        <a href="#">
-            <div>
-                <img src="{{ asset('storage/images/developer.jpg') }}" alt="برنامه نویس"
-                    class="w-full h-full object-cover rounded-2xl">
-            </div>
-
-            <div class="flex justify-between items-center p-3">
+        @foreach ($categories as $category)
+            <a href="{{ route('view', ['Category' => $category['id']]) }}">
                 <div>
-                    <p class="text-right text-black text-lg font-bold">برنامه نویس</p>
-                    <p class="text-neutral-400 text-sm font-normal">5 معرفی</p>
+                    <img src="{{ asset('storage/images/' . $category['image']) }}" alt="{{ $category['title'] }}"
+                        class="w-full h-full object-cover rounded-2xl">
                 </div>
 
-                <div class="flex text-neutral-600 text-sm font-bold mt-5">
-                    <p>بین ۷ تا ۴۵ میلیون تومان ماهانه</p>
+                <div class="flex justify-between items-center p-3">
+                    <div>
+                        <p class="text-right text-black text-lg font-bold">{{ $category['title'] }}</p>
+                    </div>
+
+                    <div class="flex text-neutral-600 text-sm font-bold mt-5">
+                        <p>{{ $category['text'] }}</p>
+                    </div>
                 </div>
-            </div>
-
-        </a>
-
-        <a href="#">
-            <div>
-                <img src="{{ asset('storage/images/lawyer.jpg') }}" alt="وکیل"
-                    class="w-full h-full object-cover rounded-2xl">
-            </div>
-
-            <div class="flex justify-between items-center p-3">
-                <div>
-                    <p class="text-right text-black text-lg font-bold">وکیل</p>
-                    <p class="text-neutral-400 text-sm font-normal">4 معرفی</p>
-                </div>
-
-                <div class="flex text-neutral-600 text-sm font-bold mt-5">
-                    <p>بین ۲۰ تا ۴۰۰ میلیون ماهانه</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="#">
-            <div>
-                <img src="{{ asset('storage/images/teacher.jpg') }}" alt="معلم"
-                    class="w-full h-full object-cover rounded-2xl">
-            </div>
-
-            <div class="flex justify-between items-center p-3">
-                <div>
-                    <p class="text-right text-black text-lg font-bold">معلم</p>
-                    <p class="text-neutral-400 text-sm font-normal">2 معرفی</p>
-                </div>
-
-
-                <div class="flex text-neutral-600 text-sm font-bold mt-5">
-                    <p>بین ۶ تا ۲۵ میلیون ماهانه</p>
-                </div>
-            </div>
-        </a>
-
-        <a href="#">
-            <div>
-                <img src="{{ asset('storage/images/seller.jpg') }}" alt="فروشنده"
-                    class="w-full h-full object-cover rounded-2xl">
-            </div>
-
-            <div class="flex justify-between items-center p-3">
-                <div>
-                    <p class="text-right text-black text-lg font-bold">فروشنده</p>
-                    <p class="text-neutral-400 text-sm font-normal">15 معرفی</p>
-                </div>
-
-                <div class="flex text-neutral-600 text-sm font-bold mt-5">
-                    <p>بین ۴ تا ۵۰ میلیون ماهانه</p>
-                </div>
-            </div>
-
-        </a>
-
-        <a href="#">
-            <div>
-                <img src="{{ asset('storage/images/translator.jpg') }}" alt="مترجم"
-                    class="w-full h-full object-cover rounded-2xl">
-            </div>
-
-            <div class="flex justify-between items-center p-3">
-                <div>
-                    <p class="text-right text-black text-lg font-bold">مترجم</p>
-                    <p class="text-neutral-400 text-sm font-normal">9 معرفی</p>
-                </div>
-
-                <div class="flex text-neutral-600 text-sm font-bold mt-5">
-                    <p>بین ۷ تا ۲۰ میلیون ماهانه</p>
-                </div>
-            </div>
-
-        </a>
+            </a>
+        @endforeach
     </div>
 
 </x-site-layout>
