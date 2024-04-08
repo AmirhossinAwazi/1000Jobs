@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminJobController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
@@ -9,11 +10,13 @@ use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/categories/{category}', [SiteController::class, 'show'])->name('category');
+// Route::get('/categories/{category}', [CategoryController::class, 'index'])->name('category');
 
-Route::get('/', [SiteController::class, 'index'])->name('home');
+// Route::get('/categories/{category}', [SiteController::class, 'show'])->name('category');
 
-Route::get('/view/{job}', [ViewController::class,'show'])->name('view');
+Route::get('/', [SiteController::class, 'show'])->name('home');
+
+Route::get('/category/{Category:id}', [ViewController::class,'show'])->name('view');
 
 Route::resource('/job/{job}/comment', CommentController::class);
 
