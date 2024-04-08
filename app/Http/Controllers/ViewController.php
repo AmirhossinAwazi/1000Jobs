@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Job;
 use App\Models\User;
@@ -36,12 +37,13 @@ class ViewController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Job $job, User $user)
+    public function show(Job $job, Category $category, User $user)
     {
         // $comments = $job->comments()->with('replies')->get();
         $comments = $job->comments()->with('user', 'replies.user')->get();
         return view('job.view', [
             'job' => $job,
+            'category' => $category,
             'comments' => $comments,
             'user' =>$user,
         ]);
