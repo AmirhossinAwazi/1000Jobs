@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CategorySeeder::class);
         $this->call(AdminSeeder::class);
+        $this->call(AtGlancesSeeder::class);
         
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
