@@ -1,7 +1,24 @@
 <x-site-layout>
     <p class=" text-neutral-700 text-4xl font-black leading-loose">
-        معرفی شغل {{ $job->user->name }} در {{ $job->category->title }}
+        معرفی شغل {{ $category->title }}
     </p>
+    <div class="flex items-center space-x-2 space-x-reverse mt-4">
+        <div class="size-7 mt-2">
+            <svg viewBox="0 0 81 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M40.4994 52.667C44.6139 52.667 48.1113 51.2269 50.9915 48.3467C53.8717 45.4665 55.3119 41.9691 55.3119 37.8545C55.3119 33.7399 53.8717 30.2425 50.9915 27.3623C48.1113 24.4821 44.6139 23.042 40.4994 23.042C36.3848 23.042 32.8874 24.4821 30.0072 27.3623C27.127 30.2425 25.6868 33.7399 25.6868 37.8545C25.6868 41.9691 27.127 45.4665 30.0072 48.3467C32.8874 51.2269 36.3848 52.667 40.4994 52.667ZM40.4994 46.742C38.0306 46.742 35.9322 45.8779 34.204 44.1498C32.4759 42.4217 31.6119 40.3232 31.6119 37.8545C31.6119 35.3857 32.4759 33.2873 34.204 31.5592C35.9322 29.8311 38.0306 28.967 40.4994 28.967C42.9681 28.967 45.0665 29.8311 46.7947 31.5592C48.5228 33.2873 49.3869 35.3857 49.3869 37.8545C49.3869 40.3232 48.5228 42.4217 46.7947 44.1498C45.0665 45.8779 42.9681 46.742 40.4994 46.742ZM40.4994 62.542C32.4896 62.542 25.1931 60.3064 18.6098 55.8352C12.0264 51.364 7.25352 45.3705 4.29102 37.8545C7.25352 30.3385 12.0264 24.3449 18.6098 19.8738C25.1931 15.4026 32.4896 13.167 40.4994 13.167C48.5091 13.167 55.8056 15.4026 62.3889 19.8738C68.9723 24.3449 73.7452 30.3385 76.7077 37.8545C73.7452 45.3705 68.9723 51.364 62.3889 55.8352C55.8056 60.3064 48.5091 62.542 40.4994 62.542ZM40.4994 55.9587C46.6987 55.9587 52.3905 54.3265 57.5749 51.0623C62.7592 47.7981 66.723 43.3955 69.466 37.8545C66.723 32.3135 62.7592 27.9109 57.5749 24.6467C52.3905 21.3824 46.6987 19.7503 40.4994 19.7503C34.3 19.7503 28.6082 21.3824 23.4238 24.6467C18.2395 27.9109 14.2757 32.3135 11.5327 37.8545C14.2757 43.3955 18.2395 47.7981 23.4238 51.0623C28.6082 54.3265 34.3 55.9587 40.4994 55.9587Z"
+                    fill="black" />
+            </svg>
+        </div>
+        <div class="shrink-0">در یک نگاه</div>
+        <div class="w-full h-1 bg-black"></div>
+    </div>
+
+
+
+
+    
+
     <div class="flex items-center space-x-2 space-x-reverse mt-4">
         <div class="size-7">
             <svg viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +57,7 @@
                 </svg>
 
                 <p class="m-2 text-neutral-700 text-base font-bold">
-                    تجربه {{ $job->user->name }}
+                    {{-- تجربه {{ $job->user->name }} --}}
                 </p>
             </div>
 
@@ -100,14 +117,14 @@
             {{ $job->photo }}
         </div> --}}
         <p class=" text-neutral-700 text-base font-bold">
-            محیط کار {{ $job->user->name }}
+            {{-- محیط کار {{ $job->user->name }} --}}
         </p>
     </div>
     <style>
         .enlarge-on-hover {
             position: relative;
         }
-    
+
         .enlarge-on-hover:hover img {
             transform: scale(1.2);
             position: fixed;
@@ -123,7 +140,8 @@
     <div class="m-2 grid grid-cols-2 gap-3">
         @foreach ($job->getMedia('images') as $photo)
             <div class="enlarge-on-hover">
-                <img src="{{ $photo->getUrl() }}" alt="Job Photo" class="w-full h-full object-cover rounded-md border border-neutral-600">
+                <img src="{{ $photo->getUrl() }}" alt="Job Photo"
+                    class="w-full h-full object-cover rounded-md border border-neutral-600">
             </div>
         @endforeach
     </div>
@@ -141,7 +159,7 @@
     </div>
 
 
-    <form action="{{ route('comment.store', ['user' => $user, 'job' => $job]) }}" method="post">
+    <form action="{{ route('comment.store', ['job' => $job, 'user']) }}" method="post">
         @csrf
         <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
             <div>
