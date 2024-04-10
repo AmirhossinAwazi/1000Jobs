@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('at_glances', function (Blueprint $table) {
+        Schema::create('atglances', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained();
             $table->longText('description');
             $table->string('evidence');
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('at_glances');
+        Schema::dropIfExists('atglances');
     }
 };
