@@ -14,10 +14,25 @@
         <div class="w-full h-1 bg-black"></div>
     </div>
 
-
-
-
-    
+    @foreach ($atGlances as $atGlance)
+        <div class="at-glance">
+            <h2>Category ID: {{ $atGlance['category_id'] }}</h2>
+            <p>Description: {{ $atGlance['description'] }}</p>
+            <p>Evidence: {{ $atGlance['evidence'] }}</p>
+            <p>Investment: {{ $atGlance['investment'] }}</p>
+            <p>Skills:
+                @if (is_string($atGlance['skill']))
+                    @foreach (json_decode($atGlance['skill']) as $skill)
+                        {{ $skill }},
+                    @endforeach
+                @else
+                    @foreach ($atGlance['skill'] as $skill)
+                        {{ $skill }},
+                    @endforeach
+                @endif
+            </p>
+        </div>
+    @endforeach
 
     <div class="flex items-center space-x-2 space-x-reverse mt-4">
         <div class="size-7">
