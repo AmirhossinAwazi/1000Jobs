@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AtGlance;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Job;
@@ -40,12 +41,15 @@ class ViewController extends Controller
     public function show(Job $job, Category $category, User $user)
     {
         // $comments = $job->comments()->with('replies')->get();
+        // $atGlancesData = AtGlance::all();
+        $atGlances = AtGlance::all();
         $comments = $job->comments()->with('user', 'replies.user')->get();
         return view('job.view', [
             'job' => $job,
             'category' => $category,
             'comments' => $comments,
             'user' =>$user,
+            'atGlances' => $atGlances,
         ]);
     }
 
