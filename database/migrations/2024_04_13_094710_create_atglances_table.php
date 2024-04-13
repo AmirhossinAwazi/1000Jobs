@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained();
             $table->longText('description');
             $table->string('evidence');
-            $table->string('skill');
+            $table->text('skill');
             $table->string('investment');
             $table->timestamps();
         });
