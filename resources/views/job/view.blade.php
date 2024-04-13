@@ -16,21 +16,51 @@
 
     @foreach ($atGlances as $atGlance)
         <div class="at-glance">
-            <h2>Category ID: {{ $atGlance['category_id'] }}</h2>
-            <p>Description: {{ $atGlance['description'] }}</p>
-            <p>Evidence: {{ $atGlance['evidence'] }}</p>
-            <p>Investment: {{ $atGlance['investment'] }}</p>
-            <p>Skills:
-                @if (is_string($atGlance['skill']))
-                    @foreach (json_decode($atGlance['skill']) as $skill)
-                        {{ $skill }},
-                    @endforeach
-                @else
-                    @foreach ($atGlance['skill'] as $skill)
-                        {{ $skill }},
-                    @endforeach
-                @endif
-            </p>
+            <div>
+                <div class="flex items-center space-x-2 space-x-reverse">
+                    <div class="w-4 h-4 bg-black rounded"></div>
+                    <p class="text-neutral-700 text-base font-bold leading-loose"">توضیح خودمونی:</p>
+                </div>
+                <p>{{ $atGlance['description'] }}</p>
+            </div>
+
+
+            <div>
+                <div class="flex items-center space-x-2 space-x-reverse">
+                    <div class="w-4 h-4 bg-black rounded"></div>
+                    <p class="text-neutral-700 text-base font-bold">محدوده درآمدی:</p>
+                </div>
+                <p></p>
+            </div>
+
+            <div>
+                <div class="flex items-center space-x-2 space-x-reverse">
+                    <div class="w-4 h-4 bg-black rounded"></div>
+                    <div class="text-neutral-700 text-base font-bold">پیش‌نیازها:</div>
+                </div>
+
+                <div>
+                    <div class=" text-neutral-700 text-base leading-tight">
+                        مدرک</div>
+                    <p>{{ $atGlance['evidence'] }}</p>
+                </div>
+
+                <div>
+                    <div class=" text-neutral-700 text-base leading-tight">
+                        مهارت</div>
+                    <p>Skills:
+                        @foreach ($atGlance['skill'] as $skill)
+                            {{ $skill }},
+                        @endforeach
+                    </p>
+                </div>
+
+                <div>
+                    <div class=" text-neutral-700 text-base leading-tight">
+                        سرمایه اولیه</div>
+                    <p>{{ $atGlance['investment'] }}</p>
+                </div>
+            </div>
         </div>
     @endforeach
 
@@ -214,8 +244,8 @@
                     {{ $comment->body }}
                 </div>
 
-                <form action="{{ route('comment.reply', ['job' => $job, 'comment' => $comment->id]) }}" method="POST"
-                    class="p-3">
+                <form action="{{ route('comment.reply', ['job' => $job, 'comment' => $comment->id]) }}"
+                    method="POST" class="p-3">
                     @csrf
                     <div>
                         <label for="lastname" class="sr-only">نام</label>
