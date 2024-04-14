@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AtGlance extends Model
 {
@@ -23,6 +24,11 @@ class AtGlance extends Model
         'skill',
         'investment',
     ];
+
+    public function Category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
 
     /**
      * The attributes that should be cast to native types.
