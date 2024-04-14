@@ -11,7 +11,7 @@
         <div class="w-full h-1 bg-black"></div>
     </div>
 
-    @foreach ($atGlances as $atGlance)
+    @foreach ($category->atGlances as $atGlance)
         <p class=" text-neutral-700 text-4xl font-black leading-loose">
             معرفی شغل {{ $atGlance['name'] }}
         </p>

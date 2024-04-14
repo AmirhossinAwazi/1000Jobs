@@ -40,11 +40,14 @@ class ViewController extends Controller
      * Display the specified resource.
      */
     // $comments = $job->comments()->with('replies')->get();
-    public function show(Job $job, User $user)
+    // $atGlances = AtGlance::with('category')->get();
+    // $categories = Category::all();
+    public function show(Job $job, User $user, $categoryId)
     {
         $comments = $job->comments()->with('user', 'replies.user')->get();
-        $atGlances = AtGlance::with('category')->get();
-        return view('job.view', compact('atGlances', 'job', 'user', 'comments'));
+        $category = Category::findOrFail($categoryId);
+        $atGlances = AtGlance::where('category_id', $categoryId)->get();
+        return view('job.view', compact('atGlances', 'job', 'user', 'comments', 'category'));
     }
 
     /**
