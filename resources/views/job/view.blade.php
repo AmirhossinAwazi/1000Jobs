@@ -1,7 +1,4 @@
 <x-site-layout>
-    <p class=" text-neutral-700 text-4xl font-black leading-loose">
-        معرفی شغل {{ $category->title }}
-    </p>
     <div class="flex items-center space-x-2 space-x-reverse mt-4">
         <div class="size-7 mt-2">
             <svg viewBox="0 0 81 98" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,6 +12,9 @@
     </div>
 
     @foreach ($atGlances as $atGlance)
+        <p class=" text-neutral-700 text-4xl font-black leading-loose">
+            معرفی شغل {{ $atGlance['name'] }}
+        </p>
         <div class="at-glance">
             <div>
                 <div class="flex items-center space-x-2 space-x-reverse">
@@ -48,7 +48,7 @@
                 <div>
                     <div class=" text-neutral-700 text-base leading-tight">
                         مهارت</div>
-                    <p>Skills:
+                    <p>
                         @foreach ($atGlance['skill'] as $skill)
                             {{ $skill }},
                         @endforeach
