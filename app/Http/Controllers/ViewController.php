@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Job;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ViewController extends Controller
 {
@@ -38,19 +39,12 @@ class ViewController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Job $job, Category $category, User $user)
+    // $comments = $job->comments()->with('replies')->get();
+    public function show(Job $job, User $user)
     {
-        // $comments = $job->comments()->with('replies')->get();
-        // $atGlancesData = AtGlance::all();
-        $atGlances = AtGlance::all();
         $comments = $job->comments()->with('user', 'replies.user')->get();
-        return view('job.view', [
-            'job' => $job,
-            'category' => $category,
-            'comments' => $comments,
-            'user' =>$user,
-            'atGlances' => $atGlances,
-        ]);
+        $atGlances = AtGlance::with('category')->get();
+        return view('job.view', compact('atGlances', 'job', 'user', 'comments'));
     }
 
     /**
