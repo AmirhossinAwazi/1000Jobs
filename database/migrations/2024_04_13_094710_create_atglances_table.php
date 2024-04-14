@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('atglances', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained();
+            $table->string('name');
             $table->longText('description');
             $table->string('evidence');
             $table->text('skill');
