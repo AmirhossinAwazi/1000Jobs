@@ -19,6 +19,7 @@ class AtGlance extends Model
      */
     protected $fillable = [
         'category_id',
+        'name',
         'description',
         'evidence',
         'skill',
@@ -27,7 +28,7 @@ class AtGlance extends Model
 
     public function Category(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->BelongsTo(Category::class);
     }
 
     /**
@@ -38,6 +39,4 @@ class AtGlance extends Model
     protected $casts = [
         'skill' => 'array',
     ];
-
-    // You can define any additional relationships or methods here as needed
 }
