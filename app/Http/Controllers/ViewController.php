@@ -46,8 +46,11 @@ class ViewController extends Controller
     {
         $comments = $job->comments()->with('user', 'replies.user')->get();
         $category = Category::findOrFail($categoryId);
+        $categories = Category::all();
+        $user = User::all();
+        $jobs = Job::all();
         $atGlances = AtGlance::where('category_id', $categoryId)->get();
-        return view('job.view', compact('atGlances', 'job', 'user', 'comments', 'category'));
+        return view('job.view', compact('atGlances', 'jobs', 'user', 'comments', 'category', 'categories'));
     }
 
     /**
