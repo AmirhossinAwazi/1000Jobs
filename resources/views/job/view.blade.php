@@ -75,122 +75,123 @@
         <div class="shrink-0">تفصیلی</div>
         <div class="w-full h-1 bg-black"></div>
     </div>
-    {{-- <div>
+    <div>
         <div class="flex items-center p-1">
             <div class="size-3 bg-black shrink-0 rounded ml-2"></div>
-            <p class="text-neutral-700 text-base font-bold">{{ $job->category->title }} دقیقاً چه کار می‌کنن؟</p>
+            <p class="text-neutral-700 text-base font-bold">{{ $category->title }} دقیقاً چه کار می‌کنن؟</p>
         </div>
-    </div> --}}
+    </div>
+    @foreach ($category->job as $job)
+        <div class="mt-5">
+            {{-- Avatars --}}
+            {{-- <div class="flex w-fit h-full">
+                <div class="object-cover overflow-hidden w-full h-full rounded-3xl border border-neutral-600">
+                    {{ $job->photo }}
+                </div>
+            </div> --}}
 
-    <div class="mt-5">
-        {{-- <div class="flex w-fit h-full">
-            <div class="object-cover overflow-hidden w-full h-full rounded-3xl border border-neutral-600">
+            <div class="mt-5 rounded-md border border-black p-4">
+                <div class="flex items-center">
+                    <svg width="17" height="24" viewBox="0 0 17 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12.887 5.32384C12.887 2.57333 10.6656 0.339844 7.92984 0.339844C5.19413 0.339844 2.97266 2.57333 2.97266 5.32384V12.8115C2.97266 15.562 5.19413 17.7955 7.92984 17.7955C10.6656 17.7955 12.887 15.562 12.887 12.8115V5.32384ZM11.2335 5.32384V12.8115C11.2335 14.6443 9.75365 16.133 7.92984 16.133C6.10686 16.133 4.62615 14.6443 4.62615 12.8115V5.32384C4.62615 3.491 6.10686 2.00229 7.92984 2.00229C9.75365 2.00229 11.2335 3.491 11.2335 5.32384Z"
+                            fill="#A3A3A3" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M7.44405 21.0793L7.45232 22.7866C7.45397 23.2446 7.82601 23.6153 8.28237 23.6137C8.73874 23.6112 9.10747 23.2371 9.10581 22.7783L9.09755 21.0784C13.2718 20.6595 16.535 17.1135 16.535 12.8078C16.535 12.3489 16.1646 11.9766 15.7082 11.9766C15.2519 11.9766 14.8815 12.3489 14.8815 12.8078C14.8815 16.4776 11.9176 19.4575 8.26749 19.4575C4.61739 19.4575 1.6535 16.4776 1.6535 12.8078C1.6535 12.3489 1.28311 11.9766 0.826749 11.9766C0.370384 11.9766 0 12.3489 0 12.8078C0 17.116 3.26731 20.6628 7.44405 21.0793Z"
+                            fill="#A3A3A3" />
+                    </svg>
+
+                    <p class="m-2 text-neutral-700 text-base font-bold">
+                        تجربه {{ $job->user->name }}
+                    </p>
+                </div>
+
+                <div>
+                    <div>
+                        <p id="job-description"
+                            class="text-justify text-neutral-700 text-base font-light leading-loose truncate">
+                            {{ $job->description }}
+                        </p>
+                        <div id="read-more-btn" class="text-center text-neutral-700 text-base font-bold cursor-pointer">
+                            نمایش بیشتر ...
+                        </div>
+                    </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const description = document.getElementById('job-description');
+                            const btn = document.getElementById('read-more-btn');
+
+                            let isExpanded = false;
+
+                            btn.addEventListener('click', function() {
+                                isExpanded = !isExpanded;
+                                if (isExpanded) {
+                                    description.classList.remove('truncate');
+                                    btn.textContent = 'بستن';
+                                } else {
+                                    description.classList.add('truncate');
+                                    btn.textContent = 'نمایش بیشتر ...';
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-2 space-x-reverse mt-4">
+            <div class="size-7">
+                <svg viewBox="0 0 69 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M3.5 34C3.5 19.3864 3.5 12.0797 8.03986 7.53986C12.5797 3 19.8864 3 34.5 3C49.1134 3 56.4204 3 60.96 7.53986C65.5 12.0797 65.5 19.3864 65.5 34C65.5 48.6134 65.5 55.9204 60.96 60.46C56.4204 65 49.1134 65 34.5 65C19.8864 65 12.5797 65 8.03986 60.46C3.5 55.9204 3.5 48.6134 3.5 34Z"
+                        stroke="black" stroke-width="5.5" />
+                    <path opacity="0.5"
+                        d="M46.8992 27.7999C50.3234 27.7999 53.0992 25.0241 53.0992 21.5999C53.0992 18.1757 50.3234 15.3999 46.8992 15.3999C43.4751 15.3999 40.6992 18.1757 40.6992 21.5999C40.6992 25.0241 43.4751 27.7999 46.8992 27.7999Z"
+                        stroke="black" stroke-width="5.5" />
+                    <path opacity="0.5"
+                        d="M12.8008 38.0519L15.3134 35.7182C18.1842 33.0519 22.6687 33.2016 25.3554 36.0533L33.5627 44.7655C35.2311 46.5363 37.9622 46.775 39.9125 45.3201C42.7226 43.2236 46.6354 43.462 49.1706 45.8837L56.2008 52.6002"
+                        stroke="black" stroke-width="5.5" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="shrink-0">گالری</div>
+            <div class="w-full h-1 bg-black"></div>
+        </div>
+
+        <div class="flex items-center m-2">
+            <div class="h-fit w-10 ml-2 overflow-hidden rounded-full">
                 {{ $job->photo }}
             </div>
-        </div> --}}
+            <p class=" text-neutral-700 text-base font-bold">
+                محیط کار {{ $job->user->name }}
+            </p>
+        </div>
+        <style>
+            .enlarge-on-hover {
+                position: relative;
+            }
 
-        <div class="mt-5 rounded-md border border-black p-4">
-            <div class="flex items-center">
-                <svg width="17" height="24" viewBox="0 0 17 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M12.887 5.32384C12.887 2.57333 10.6656 0.339844 7.92984 0.339844C5.19413 0.339844 2.97266 2.57333 2.97266 5.32384V12.8115C2.97266 15.562 5.19413 17.7955 7.92984 17.7955C10.6656 17.7955 12.887 15.562 12.887 12.8115V5.32384ZM11.2335 5.32384V12.8115C11.2335 14.6443 9.75365 16.133 7.92984 16.133C6.10686 16.133 4.62615 14.6443 4.62615 12.8115V5.32384C4.62615 3.491 6.10686 2.00229 7.92984 2.00229C9.75365 2.00229 11.2335 3.491 11.2335 5.32384Z"
-                        fill="#A3A3A3" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M7.44405 21.0793L7.45232 22.7866C7.45397 23.2446 7.82601 23.6153 8.28237 23.6137C8.73874 23.6112 9.10747 23.2371 9.10581 22.7783L9.09755 21.0784C13.2718 20.6595 16.535 17.1135 16.535 12.8078C16.535 12.3489 16.1646 11.9766 15.7082 11.9766C15.2519 11.9766 14.8815 12.3489 14.8815 12.8078C14.8815 16.4776 11.9176 19.4575 8.26749 19.4575C4.61739 19.4575 1.6535 16.4776 1.6535 12.8078C1.6535 12.3489 1.28311 11.9766 0.826749 11.9766C0.370384 11.9766 0 12.3489 0 12.8078C0 17.116 3.26731 20.6628 7.44405 21.0793Z"
-                        fill="#A3A3A3" />
-                </svg>
-
-                <p class="m-2 text-neutral-700 text-base font-bold">
-                    {{-- تجربه {{ $job->user->name }} --}}
-                </p>
-            </div>
-
-            <div>
-                <div>
-                    <p id="job-description"
-                        class="text-justify text-neutral-700 text-base font-light leading-loose truncate">
-                        {{ $job->description }}
-                    </p>
-                    <div id="read-more-btn" class="text-center text-neutral-700 text-base font-bold cursor-pointer">
-                        نمایش بیشتر ...
-                    </div>
+            .enlarge-on-hover:hover img {
+                transform: scale(1.2);
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 25vw;
+                height: 25vh;
+                z-index: 9999;
+                object-fit: cover;
+            }
+        </style>
+        <div class="m-2 grid grid-cols-2 gap-3">
+            @foreach ($job->getMedia('images') as $photo)
+                <div class="enlarge-on-hover">
+                    <img src="{{ $photo->getUrl() }}" alt="Job Photo"
+                        class="w-full h-full object-cover rounded-md border border-neutral-600">
                 </div>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        const description = document.getElementById('job-description');
-                        const btn = document.getElementById('read-more-btn');
-
-                        let isExpanded = false;
-
-                        btn.addEventListener('click', function() {
-                            isExpanded = !isExpanded;
-                            if (isExpanded) {
-                                description.classList.remove('truncate');
-                                btn.textContent = 'بستن';
-                            } else {
-                                description.classList.add('truncate');
-                                btn.textContent = 'نمایش بیشتر ...';
-                            }
-                        });
-                    });
-                </script>
-            </div>
+            @endforeach
         </div>
-    </div>
-
-    <div class="flex items-center space-x-2 space-x-reverse mt-4">
-        <div class="size-7">
-            <svg viewBox="0 0 69 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M3.5 34C3.5 19.3864 3.5 12.0797 8.03986 7.53986C12.5797 3 19.8864 3 34.5 3C49.1134 3 56.4204 3 60.96 7.53986C65.5 12.0797 65.5 19.3864 65.5 34C65.5 48.6134 65.5 55.9204 60.96 60.46C56.4204 65 49.1134 65 34.5 65C19.8864 65 12.5797 65 8.03986 60.46C3.5 55.9204 3.5 48.6134 3.5 34Z"
-                    stroke="black" stroke-width="5.5" />
-                <path opacity="0.5"
-                    d="M46.8992 27.7999C50.3234 27.7999 53.0992 25.0241 53.0992 21.5999C53.0992 18.1757 50.3234 15.3999 46.8992 15.3999C43.4751 15.3999 40.6992 18.1757 40.6992 21.5999C40.6992 25.0241 43.4751 27.7999 46.8992 27.7999Z"
-                    stroke="black" stroke-width="5.5" />
-                <path opacity="0.5"
-                    d="M12.8008 38.0519L15.3134 35.7182C18.1842 33.0519 22.6687 33.2016 25.3554 36.0533L33.5627 44.7655C35.2311 46.5363 37.9622 46.775 39.9125 45.3201C42.7226 43.2236 46.6354 43.462 49.1706 45.8837L56.2008 52.6002"
-                    stroke="black" stroke-width="5.5" stroke-linecap="round" />
-            </svg>
-        </div>
-        <div class="shrink-0">گالری</div>
-        <div class="w-full h-1 bg-black"></div>
-    </div>
-
-    <div class="flex items-center m-2">
-        {{-- <div class="h-fit w-10 ml-2 overflow-hidden rounded-full">
-            {{ $job->photo }}
-        </div> --}}
-        <p class=" text-neutral-700 text-base font-bold">
-            {{-- محیط کار {{ $job->user->name }} --}}
-        </p>
-    </div>
-    <style>
-        .enlarge-on-hover {
-            position: relative;
-        }
-
-        .enlarge-on-hover:hover img {
-            transform: scale(1.2);
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 25vw;
-            height: 25vh;
-            z-index: 9999;
-            object-fit: cover;
-        }
-    </style>
-    <div class="m-2 grid grid-cols-2 gap-3">
-        @foreach ($job->getMedia('images') as $photo)
-            <div class="enlarge-on-hover">
-                <img src="{{ $photo->getUrl() }}" alt="Job Photo"
-                    class="w-full h-full object-cover rounded-md border border-neutral-600">
-            </div>
-        @endforeach
-    </div>
-
+    @endforeach
     <div class="flex items-center space-x-2 space-x-reverse mt-4">
         <div class="size-7">
             <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
