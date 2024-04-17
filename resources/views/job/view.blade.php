@@ -25,40 +25,47 @@
             </div>
 
 
-            <div>
+            <div class="mt-5">
                 <div class="flex items-center space-x-2 space-x-reverse">
                     <div class="w-4 h-4 bg-black rounded"></div>
-                    <p class="text-neutral-700 text-base font-bold">محدوده درآمدی:</p>
+                    <div class="flex gap-2 items-center">
+                        <p class="text-center text-neutral-700 text-base font-bold leading-tight">محدوده درآمدی:</p>
+                        <p class="w-32 h-10 p-2.5 bg-white rounded-xl border border-neutral-400 justify-center items-center gap-2.5 inline-flex">{{ $atGlance['IncomeRange'] }}</p>
+                    </div>
                 </div>
-                <p></p>
             </div>
 
-            <div>
+            <div class="mt-6">
                 <div class="flex items-center space-x-2 space-x-reverse">
                     <div class="w-4 h-4 bg-black rounded"></div>
                     <div class="text-neutral-700 text-base font-bold">پیش‌نیازها:</div>
                 </div>
 
-                <div>
-                    <div class=" text-neutral-700 text-base leading-tight">
-                        مدرک</div>
-                    <p>{{ $atGlance['evidence'] }}</p>
+                <div class="pt-3">
+                    <ul
+                        class="text-neutral-700 text-base font-bold border border-neutral-700 rounded-lg bg-green-200 h-fit w-14 p-1 m-2 leading-tight">
+                        مدرک</ul>
+                    <li class="p-1 pr-5 rounded-xl border inline-flex justify-center items-center border-neutral-400 w-28 h-10 bg-green-50">
+                        {{ $atGlance['evidence'] }}</li>
                 </div>
 
-                <div>
-                    <div class=" text-neutral-700 text-base leading-tight">
-                        مهارت</div>
-                    <p>
+                <div class="pt-3">
+                    <ul
+                        class="text-neutral-700 text-base font-bold border border-neutral-700 rounded-lg bg-green-200 h-fit w-14 p-1 m-2 leading-tight">
+                        مهارت</ul>
+                    <span class="p-1 pr-5 rounded-xl border border-neutral-400 w-28 h-10 bg-green-50">
                         @foreach ($atGlance['skill'] as $skill)
                             {{ $skill }},
                         @endforeach
-                    </p>
+                    </span>
                 </div>
 
-                <div>
-                    <div class=" text-neutral-700 text-base leading-tight">
-                        سرمایه اولیه</div>
-                    <p>{{ $atGlance['investment'] }}</p>
+                <div class="pt-3">
+                    <ul
+                        class="text-neutral-700 text-base font-bold border border-neutral-700 rounded-lg bg-green-200 h-fit w-fit p-1 m-2 leading-tight">
+                        سرمایه اولیه</ul>
+                    <li class="p-1 pr-5 rounded-xl border inline-flex justify-center items-center border-neutral-400 w-fit h-10 bg-green-50">
+                        {{ $atGlance['investment'] }}</li>
                 </div>
             </div>
         </div>
@@ -216,7 +223,8 @@
             <div class="px-4 py-2 bg-white rounded-t-lg">
                 <label for="comment" class="sr-only">نظرتان</label>
                 <textarea id="comment" name="body" rows="3"
-                    class="w-full px-0 text-xl text-gray-900 bg-white border-0 focus:ring-0" placeholder="نظرتان را بنویسید" required /></textarea>
+                    class="w-full px-0 text-xl text-gray-900 bg-white border-0 focus:ring-0" placeholder="نظرتان را بنویسید"
+                    required /></textarea>
             </div>
             <div class="flex items-center justify-between px-3 py-2 border-t">
                 <button type="submit"
