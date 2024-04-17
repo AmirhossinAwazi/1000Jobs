@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('evidence');
             $table->text('skill');
             $table->string('investment');
+            $table->string('IncomeRange');
             $table->timestamps();
         });
     }
