@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css', 'resource/js/app.js'])
 
 </head>
-<body class="font-sans text-gray-900 antialiased max-w-md mx-auto">
+<body class="pr-2 font-sans w-fit h-fit rounded-2xl shadow bg-slate-50 text-gray-900 antialiased max-w-md mx-auto">
 
     <x-header/>
 
