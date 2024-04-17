@@ -26,6 +26,7 @@ class AtGlancesSeeder extends Seeder
                 'evidence' => 'نیاز ندارد',
                 'skill' => json_encode(["HTML & CSS", "JavaScript", "react | Vue.js", "آشنایی با Git"]),
                 'investment' => 'یک عدد لپتاپ یا کامپیوتر',
+                'IncomeRange' => '7-45 میلیون',
             ],
             [
                 'category_id' => 2,
@@ -39,6 +40,7 @@ class AtGlancesSeeder extends Seeder
                 'evidence' => 'حقوق',
                 'skill' => json_encode(["سخنوری", "تحقیق", "حل مسئله", "ارتباط"]),
                 'investment' => 'نیاز ندارد',
+                'IncomeRange' => '20-400 میلیون',
             ],
             [
                 'category_id' => 3,
@@ -52,6 +54,7 @@ class AtGlancesSeeder extends Seeder
                 'evidence' => 'لیسانس',
                 'skill' => json_encode(["تدریس", "صبر و حوصله", "همدلی", "انعطاف پذیری"]),
                 'investment' => 'نیاز ندارد',
+                'IncomeRange' => '6-25 میلیون',
             ],
             [
                 'category_id' => 4,
@@ -65,6 +68,7 @@ class AtGlancesSeeder extends Seeder
                 'evidence' => 'نیاز ندارد',
                 'skill' => json_encode(["ارتباط", "مذاکره", "همدلی", "شناخت محصول"]),
                 'investment' => 'نیاز ندارد',
+                'IncomeRange' => '4-50 میلیون',
             ],
             [
                 'category_id' => 5,
@@ -77,6 +81,7 @@ class AtGlancesSeeder extends Seeder
                 'evidence' => 'نیاز ندارد',
                 'skill' => json_encode(["زبان", "نویسندگی", "ابزارهای تجربه یار", "آشنایی با موضوع متن"]),
                 'investment' => 'یک عدد لپتاپ یا کامپیوتر',
+                'IncomeRange' => '7-20 میلیون',
             ],
         ];
 
