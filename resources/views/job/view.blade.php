@@ -1,5 +1,9 @@
 <x-site-layout>
-    <div class="flex items-center space-x-2 space-x-reverse mt-4">
+    <div class="flex m-2 items-center">
+        <div class="size-3 bg-black shrink-0 rounded ml-2"></div>
+        <p class="text-neutral-700 text-base font-bold">{{ $category->title }} دقیقاً چه کار می‌کنن؟</p>
+    </div>
+    <div class="flex items-center space-x-2 space-x-reverse">
         <div class="size-7 mt-2">
             <svg viewBox="0 0 81 98" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -30,7 +34,9 @@
                     <div class="w-4 h-4 bg-black rounded"></div>
                     <div class="flex gap-2 items-center">
                         <p class="text-center text-neutral-700 text-base font-bold leading-tight">محدوده درآمدی:</p>
-                        <p class="w-32 h-10 p-2.5 bg-white rounded-xl border border-neutral-400 justify-center items-center gap-2.5 inline-flex">{{ $atGlance['IncomeRange'] }}</p>
+                        <p
+                            class="w-32 h-10 p-2.5 bg-white rounded-xl border border-neutral-400 justify-center items-center gap-2.5 inline-flex">
+                            {{ $atGlance['IncomeRange'] }}</p>
                     </div>
                 </div>
             </div>
@@ -45,7 +51,8 @@
                     <ul
                         class="text-neutral-700 text-base font-bold border border-neutral-700 rounded-lg bg-green-200 h-fit w-14 p-1 m-2 leading-tight">
                         مدرک</ul>
-                    <li class="p-1 pr-5 rounded-xl border inline-flex justify-center items-center border-neutral-400 w-28 h-10 bg-green-50">
+                    <li
+                        class="p-1 pr-5 rounded-xl border inline-flex justify-center items-center border-neutral-400 w-28 h-10 bg-green-50">
                         {{ $atGlance['evidence'] }}</li>
                 </div>
 
@@ -64,30 +71,14 @@
                     <ul
                         class="text-neutral-700 text-base font-bold border border-neutral-700 rounded-lg bg-green-200 h-fit w-fit p-1 m-2 leading-tight">
                         سرمایه اولیه</ul>
-                    <li class="p-1 pr-5 rounded-xl border inline-flex justify-center items-center border-neutral-400 w-fit h-10 bg-green-50">
+                    <li
+                        class="p-1 pr-5 rounded-xl border inline-flex justify-center items-center border-neutral-400 w-fit h-10 bg-green-50">
                         {{ $atGlance['investment'] }}</li>
                 </div>
             </div>
         </div>
     @endforeach
 
-    <div class="flex items-center space-x-2 space-x-reverse mt-4">
-        <div class="size-7">
-            <svg viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M25.4383 60.5L24.3383 51.7C23.7424 51.4708 23.181 51.1958 22.6539 50.875C22.1268 50.5542 21.6112 50.2104 21.107 49.8438L12.9258 53.2812L5.36328 40.2188L12.4445 34.8563C12.3987 34.5354 12.3758 34.226 12.3758 33.9281V32.0719C12.3758 31.774 12.3987 31.4646 12.4445 31.1438L5.36328 25.7812L12.9258 12.7188L21.107 16.1562C21.6112 15.7896 22.1383 15.4458 22.6883 15.125C23.2383 14.8042 23.7883 14.5292 24.3383 14.3L25.4383 5.5H40.5633L41.6633 14.3C42.2591 14.5292 42.8206 14.8042 43.3477 15.125C43.8747 15.4458 44.3904 15.7896 44.8945 16.1562L53.0758 12.7188L60.6383 25.7812L53.557 31.1438C53.6029 31.4646 53.6258 31.774 53.6258 32.0719V33.9281C53.6258 34.226 53.5799 34.5354 53.4883 34.8563L60.5695 40.2188L53.007 53.2812L44.8945 49.8438C44.3904 50.2104 43.8633 50.5542 43.3133 50.875C42.7633 51.1958 42.2133 51.4708 41.6633 51.7L40.5633 60.5H25.4383ZM30.2508 55H35.682L36.6445 47.7125C38.0654 47.3458 39.3831 46.8073 40.5977 46.0969C41.8122 45.3865 42.9237 44.5271 43.932 43.5187L50.7383 46.3375L53.4195 41.6625L47.507 37.1938C47.7362 36.5521 47.8966 35.876 47.9883 35.1656C48.0799 34.4552 48.1258 33.7333 48.1258 33C48.1258 32.2667 48.0799 31.5448 47.9883 30.8344C47.8966 30.124 47.7362 29.4479 47.507 28.8062L53.4195 24.3375L50.7383 19.6625L43.932 22.55C42.9237 21.4958 41.8122 20.6135 40.5977 19.9031C39.3831 19.1927 38.0654 18.6542 36.6445 18.2875L35.7508 11H30.3195L29.357 18.2875C27.9362 18.6542 26.6185 19.1927 25.4039 19.9031C24.1893 20.6135 23.0779 21.4729 22.0695 22.4813L15.2633 19.6625L12.582 24.3375L18.4945 28.7375C18.2654 29.425 18.1049 30.1125 18.0133 30.8C17.9216 31.4875 17.8758 32.2208 17.8758 33C17.8758 33.7333 17.9216 34.4438 18.0133 35.1313C18.1049 35.8188 18.2654 36.5063 18.4945 37.1938L12.582 41.6625L15.2633 46.3375L22.0695 43.45C23.0779 44.5042 24.1893 45.3865 25.4039 46.0969C26.6185 46.8073 27.9362 47.3458 29.357 47.7125L30.2508 55ZM33.1383 42.625C35.7966 42.625 38.0654 41.6854 39.9445 39.8063C41.8237 37.9271 42.7633 35.6583 42.7633 33C42.7633 30.3417 41.8237 28.0729 39.9445 26.1938C38.0654 24.3146 35.7966 23.375 33.1383 23.375C30.4341 23.375 28.1539 24.3146 26.2977 26.1938C24.4414 28.0729 23.5133 30.3417 23.5133 33C23.5133 35.6583 24.4414 37.9271 26.2977 39.8063C28.1539 41.6854 30.4341 42.625 33.1383 42.625Z"
-                    fill="black" />
-            </svg>
-        </div>
-        <div class="shrink-0">تفصیلی</div>
-        <div class="w-full h-1 bg-black"></div>
-    </div>
-    <div>
-        <div class="flex items-center p-1">
-            <div class="size-3 bg-black shrink-0 rounded ml-2"></div>
-            <p class="text-neutral-700 text-base font-bold">{{ $category->title }} دقیقاً چه کار می‌کنن؟</p>
-        </div>
-    </div>
     @foreach ($category->job as $job)
         <div class="mt-5">
             {{-- Avatars --}}
@@ -96,6 +87,18 @@
                     {{ $job->photo }}
                 </div>
             </div> --}}
+
+            <div class="flex items-center space-x-2 space-x-reverse mt-4">
+                <div class="size-7">
+                    <svg viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M25.4383 60.5L24.3383 51.7C23.7424 51.4708 23.181 51.1958 22.6539 50.875C22.1268 50.5542 21.6112 50.2104 21.107 49.8438L12.9258 53.2812L5.36328 40.2188L12.4445 34.8563C12.3987 34.5354 12.3758 34.226 12.3758 33.9281V32.0719C12.3758 31.774 12.3987 31.4646 12.4445 31.1438L5.36328 25.7812L12.9258 12.7188L21.107 16.1562C21.6112 15.7896 22.1383 15.4458 22.6883 15.125C23.2383 14.8042 23.7883 14.5292 24.3383 14.3L25.4383 5.5H40.5633L41.6633 14.3C42.2591 14.5292 42.8206 14.8042 43.3477 15.125C43.8747 15.4458 44.3904 15.7896 44.8945 16.1562L53.0758 12.7188L60.6383 25.7812L53.557 31.1438C53.6029 31.4646 53.6258 31.774 53.6258 32.0719V33.9281C53.6258 34.226 53.5799 34.5354 53.4883 34.8563L60.5695 40.2188L53.007 53.2812L44.8945 49.8438C44.3904 50.2104 43.8633 50.5542 43.3133 50.875C42.7633 51.1958 42.2133 51.4708 41.6633 51.7L40.5633 60.5H25.4383ZM30.2508 55H35.682L36.6445 47.7125C38.0654 47.3458 39.3831 46.8073 40.5977 46.0969C41.8122 45.3865 42.9237 44.5271 43.932 43.5187L50.7383 46.3375L53.4195 41.6625L47.507 37.1938C47.7362 36.5521 47.8966 35.876 47.9883 35.1656C48.0799 34.4552 48.1258 33.7333 48.1258 33C48.1258 32.2667 48.0799 31.5448 47.9883 30.8344C47.8966 30.124 47.7362 29.4479 47.507 28.8062L53.4195 24.3375L50.7383 19.6625L43.932 22.55C42.9237 21.4958 41.8122 20.6135 40.5977 19.9031C39.3831 19.1927 38.0654 18.6542 36.6445 18.2875L35.7508 11H30.3195L29.357 18.2875C27.9362 18.6542 26.6185 19.1927 25.4039 19.9031C24.1893 20.6135 23.0779 21.4729 22.0695 22.4813L15.2633 19.6625L12.582 24.3375L18.4945 28.7375C18.2654 29.425 18.1049 30.1125 18.0133 30.8C17.9216 31.4875 17.8758 32.2208 17.8758 33C17.8758 33.7333 17.9216 34.4438 18.0133 35.1313C18.1049 35.8188 18.2654 36.5063 18.4945 37.1938L12.582 41.6625L15.2633 46.3375L22.0695 43.45C23.0779 44.5042 24.1893 45.3865 25.4039 46.0969C26.6185 46.8073 27.9362 47.3458 29.357 47.7125L30.2508 55ZM33.1383 42.625C35.7966 42.625 38.0654 41.6854 39.9445 39.8063C41.8237 37.9271 42.7633 35.6583 42.7633 33C42.7633 30.3417 41.8237 28.0729 39.9445 26.1938C38.0654 24.3146 35.7966 23.375 33.1383 23.375C30.4341 23.375 28.1539 24.3146 26.2977 26.1938C24.4414 28.0729 23.5133 30.3417 23.5133 33C23.5133 35.6583 24.4414 37.9271 26.2977 39.8063C28.1539 41.6854 30.4341 42.625 33.1383 42.625Z"
+                            fill="black" />
+                    </svg>
+                </div>
+                <div class="shrink-0">تفصیلی</div>
+                <div class="w-full h-1 bg-black"></div>
+            </div>
 
             <div class="mt-5 rounded-md border border-black p-4">
                 <div class="flex items-center">
@@ -198,6 +201,7 @@
                 </div>
             @endforeach
         </div>
+        <div class="mt-5 w-full h-1 bg-amber-600"></div>
     @endforeach
     <div class="flex items-center space-x-2 space-x-reverse mt-4">
         <div class="size-7">
@@ -217,7 +221,8 @@
         <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
             <div>
                 <label for="lastname"></label>
-                <input id="lastname" name="lastname" type="username" placeholder="نام و نام خانوادگی خود را وارد کنید"
+                <input id="lastname" name="lastname" type="username"
+                    placeholder="نام و نام خانوادگی خود را وارد کنید"
                     class="block border border-gray-400 rounded-md h-12 w-full" required />
             </div>
             <div class="px-4 py-2 bg-white rounded-t-lg">
