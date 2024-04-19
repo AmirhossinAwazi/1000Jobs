@@ -9,16 +9,11 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
-
-// Route::get('/categories/{category}', [CategoryController::class, 'index'])->name('category');
-
-// Route::get('/categories/{category}', [SiteController::class, 'show'])->name('category');
-
 Route::get('/', [SiteController::class, 'show'])->name('home');
 
 Route::get('/category/{Category:id}', [ViewController::class,'show'])->name('view');
 
-Route::resource('/job/{job}/comment', CommentController::class);
+Route::resource('/category/{Category:id}/comment', CommentController::class);
 
 Route::post('/jobs/{job}/comments/{comment}/reply', [CommentController::class, 'reply'])->name('comment.reply');
 
