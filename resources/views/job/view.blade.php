@@ -216,7 +216,7 @@
     </div>
 
 
-    <form action="{{ route('comment.store', ['job' => $job, 'user']) }}" method="post">
+    <form action="{{ route('comment.store', ['categories' => $categories, 'user']) }}" method="post">
         @csrf
         <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
             <div>
