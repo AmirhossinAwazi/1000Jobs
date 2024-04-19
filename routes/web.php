@@ -13,7 +13,7 @@ Route::get('/', [SiteController::class, 'show'])->name('home');
 
 Route::get('/category/{Category:id}', [ViewController::class,'show'])->name('view');
 
-Route::resource('/category/{Category:id}/comment', CommentController::class);
+Route::resource('/category/{category}/user/{user}/comment', CommentController::class);
 
 Route::post('/jobs/{job}/comments/{comment}/reply', [CommentController::class, 'reply'])->name('comment.reply');
 
