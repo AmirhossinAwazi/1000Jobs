@@ -42,9 +42,9 @@ class ViewController extends Controller
     // $comments = $job->comments()->with('replies')->get();
     // $atGlances = AtGlance::with('category')->get();
     // $categories = Category::all();
-    public function show(Job $job, User $user, $categoryId)
+    public function show(Job $job, User $user, $categoryId, Category $category)
     {
-        $comments = $job->comments()->with('user', 'replies.user')->get();
+        $comments = $category->comments()->with('user', 'replies.user')->get();
         $category = Category::findOrFail($categoryId);
         $categories = Category::all();
         $user = User::all();
