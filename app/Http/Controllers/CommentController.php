@@ -33,14 +33,15 @@ class CommentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Job $job, User $user): View
+    public function index(Job $job, User $user, Category $category): View
     {
         // $comments = Comment::all();
-        $comments = $job->comments()->whereNull('parent_id')->get();
+        $comments = $category->comments()->whereNull('parent_id')->get();
         return view('job.view', [
-            'job'=>$job,
-            'user'=>$user
-            ])->with('comments', $comments);
+            'job' => $job,
+            'user' => $user,
+            'category' => $category
+        ])->with('comments', $comments);
     }
 
     /**
@@ -54,11 +55,14 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCommentRequest $request, Job $job, Category $category)
+    public function store(StoreCommentRequest $request, $categoryId)
     {
-        $job->comments()->create($request->validated());
+        $category = Category::findOrFail($categoryId);
+        $validatedData = $request->validated();
+        $validatedData['category_id'] = $category->id;
+        $category->comments()->create($validatedData);
 
-        return to_route('view', ['categoryId' => $category->id]);
+        return redirect()->route('view', ['Category' => $category->id]);
     }
 
     /**
@@ -73,7 +77,7 @@ class CommentController extends Controller
             'comments' => $comments
         ]);
     }
-    
+
 
     /**
      * Show the form for editing the specified resource.
