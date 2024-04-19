@@ -35,7 +35,6 @@ class StoreJobRequest extends FormRequest
             'name' => ['required', 'string', 'max:45'],
             'needs_advice' => ['nullable', 'boolean'],
             'phone_number' => ['nullable', 'string', 'regex:/^(\+?98|0)?9\d{9}$/'],
-            'audio' => ['required', 'file', 'extension:mp3,wav,ogg'],
         ];
     }
 }
