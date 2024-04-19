@@ -20,7 +20,7 @@ class Category extends Model
     }
     public function comments(): HasMany
     {
-        return $this->hasMany(Job::class);
+        return $this->hasMany(Comment::class)->whereNull('parent_id');
     }
 
     public function atGlances(): HasMany
