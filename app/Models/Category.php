@@ -18,6 +18,10 @@ class Category extends Model
     {
         return $this->hasMany(Job::class);
     }
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Job::class);
+    }
 
     public function atGlances(): HasMany
     {
