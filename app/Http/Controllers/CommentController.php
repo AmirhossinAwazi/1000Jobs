@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCommentRequest;
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Job;
 use App\Models\User;
@@ -45,19 +46,19 @@ class CommentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create(Category $category): View
     {
-        return view('job.view');
+        return view('job.view', ['categoryId' => $category->id]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCommentRequest $request, Job $job)
+    public function store(StoreCommentRequest $request, Job $job, Category $category)
     {
         $job->comments()->create($request->validated());
 
-        return to_route('view', ['job'=>$job]);
+        return to_route('view', ['categoryId' => $category->id]);
     }
 
     /**
