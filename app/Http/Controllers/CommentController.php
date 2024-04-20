@@ -14,17 +14,18 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
 
-    public function reply(Request $request, Job $job, Comment $comment)
+    public function reply(Request $request, Category $category, Comment $comment)
     {
         $request->validate([
             'reply' => 'required|string',
             'lastname' => 'nullable|string',
         ]);
+
         $reply = new Comment();
         $reply->body = $request->input('reply');
         $reply->lastname = $request->input('lastname');
         $reply->parent_id = $comment->id;
-        $reply->job_id = $job->id;
+        $reply->category_id = $category->id;
         $reply->save();
 
         return redirect()->back()->with('success', 'Reply posted successfully!');
@@ -35,7 +36,6 @@ class CommentController extends Controller
      */
     public function index(Job $job, User $user, Category $category): View
     {
-        // $comments = Comment::all();
         $comments = $category->comments()->whereNull('parent_id')->get();
         return view('job.view', [
             'job' => $job,
@@ -68,14 +68,14 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Job $job): View
+    public function show(Job $job, User $user,Category $category): View
     {
-        // Fetch only root comments (comments without a parent_id)
-        $comments = $job->comments()->whereNull('parent_id')->get();
+        $comments = $category->comments()->whereNull('parent_id')->get();
         return view('job.view', [
             'job' => $job,
-            'comments' => $comments
-        ]);
+            'user' => $user,
+            'category' => $category
+        ])->with('comments', $comments);
     }
 
 
