@@ -39,9 +39,6 @@ class ViewController extends Controller
     /**
      * Display the specified resource.
      */
-    // $comments = $job->comments()->with('replies')->get();
-    // $atGlances = AtGlance::with('category')->get();
-    // $categories = Category::all();
     public function show(Job $job, User $user, $categoryId, Category $category)
     {
         $comments = $category->comments()->with('user', 'replies.user')->get();
