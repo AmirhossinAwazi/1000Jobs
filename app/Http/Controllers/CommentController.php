@@ -8,7 +8,6 @@ use App\Models\Comment;
 use App\Models\Job;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -31,9 +30,6 @@ class CommentController extends Controller
         return redirect()->back()->with('success', 'Reply posted successfully!');
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Job $job, User $user, Category $category): View
     {
         $comments = $category->comments()->whereNull('parent_id')->get();
@@ -44,17 +40,11 @@ class CommentController extends Controller
         ])->with('comments', $comments);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(Category $category): View
     {
         return view('job.view', ['categoryId' => $category->id]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreCommentRequest $request, $categoryId)
     {
         $category = Category::findOrFail($categoryId);
@@ -65,41 +55,14 @@ class CommentController extends Controller
         return redirect()->route('view', ['Category' => $category->id]);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Job $job, User $user,Category $category): View
     {
-        $comments = $category->comments()->whereNull('parent_id')->get();
+        // $comments = $category->comments()->whereNull('parent_id')->get();
+        $comments = $category->comments()->with('replies')->whereNull('parent_id')->get();
         return view('job.view', [
             'job' => $job,
             'user' => $user,
             'category' => $category
         ])->with('comments', $comments);
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Comment $Comment)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Comment $Comment)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Comment $Comment)
-    {
-        //
     }
 }
