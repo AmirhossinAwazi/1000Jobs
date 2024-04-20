@@ -241,7 +241,7 @@
     </form>
 
     <div class="pt-5">
-        @foreach ($comments as $comment)
+        @foreach ($category->comments as $comment)
             <div class="mt-3 bg-neutral-50 rounded-lg border border-neutral-700">
                 <div class="w-72 h-14 m-2">
                     <div class="text-neutral-700 text-xs font-medium">
@@ -250,15 +250,12 @@
                     <div class="top-5 text-neutral-400 text-xs font-light leading-normal">
                         {{ $comment->created_at->diffForHumans() }}
                     </div>
-                    {{-- <div class="w-fit h-fit left-[223.50px] top-[1.54px] overflow-hidden absolute rounded-full">
-                        {{ $job->photo }}
-                    </div> --}}
                 </div>
                 <div class="break-all p-3 text-justify text-neutral-700 text-xs font-light leading-normal">
                     {{ $comment->body }}
                 </div>
 
-                <form action="{{ route('comment.reply', ['job' => $job, 'comment' => $comment->id]) }}"
+                <form action="{{ route('comment.reply', ['category' => $category, 'comment' => $comment->id]) }}"
                     method="POST" class="p-3">
                     @csrf
                     <div>
@@ -280,7 +277,7 @@
 
                 @if ($comment->replies->count() > 0)
                     <div class="replies">
-                        @foreach ($comment->replies as $reply)
+                        @foreach ($category->comments->replies as $reply)
                             <div class="reply m-3 bg-neutral-50 rounded-lg border border-neutral-700">
                                 <div class="w-72 h-14 m-2">
                                     <div class=" text-neutral-700 text-xs font-medium">
@@ -289,10 +286,6 @@
                                     <div class="top-5 text-neutral-400 text-xs font-light leading-normal">
                                         {{ $reply->created_at->diffForHumans() }}
                                     </div>
-                                    {{-- <div
-                                        class="w-fit h-fit left-[223.50px] top-[1.54px] overflow-hidden absolute rounded-full">
-                                        {{ $job->photo }}
-                                    </div> --}}
                                 </div>
                                 <div
                                     class="break-all p-3 text-justify text-neutral-700 text-xs font-light leading-normal">
