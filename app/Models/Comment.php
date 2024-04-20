@@ -15,6 +15,7 @@ class Comment extends Model
         'lastname',
         'body',
         'parent_id',
+        'category_id',
     ];
 
     public function job(): BelongsTo
