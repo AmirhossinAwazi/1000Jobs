@@ -18,6 +18,7 @@ class Category extends Model
     {
         return $this->hasMany(Job::class);
     }
+    
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class)->whereNull('parent_id');
