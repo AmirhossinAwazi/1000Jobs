@@ -15,7 +15,7 @@ Route::get('/category/{Category:id}', [ViewController::class,'show'])->name('vie
 
 Route::resource('/category/{category}/user/{user}/comment', CommentController::class);
 
-Route::post('/category/{category}/reply', [CommentController::class, 'reply'])->name('comment.reply');
+Route::post('/categoy/{category}/comments/{comment}/reply', [CommentController::class, 'reply'])->name('comment.reply');
 
 Route::resource('/SAQ', JobController::class);
 
