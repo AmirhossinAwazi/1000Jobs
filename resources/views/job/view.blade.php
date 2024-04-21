@@ -81,13 +81,6 @@
 
     @foreach ($category->job as $job)
         <div class="mt-5">
-            {{-- Avatars --}}
-            {{-- <div class="flex w-fit h-full">
-                <div class="object-cover overflow-hidden w-full h-full rounded-3xl border border-neutral-600">
-                    {{ $job->photo }}
-                </div>
-            </div> --}}
-
             <div class="flex items-center space-x-2 space-x-reverse mt-4">
                 <div class="size-7">
                     <svg viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -116,37 +109,39 @@
                         تجربه {{ $job->user->name }}
                     </p>
                 </div>
-
+                
                 <div>
                     <div>
-                        <p id="job-description"
-                            class="text-justify text-neutral-700 text-base font-light leading-loose truncate">
+                        <p
+                            class="job-description text-justify text-neutral-700 text-base font-light leading-loose truncate">
                             {{ $job->description }}
                         </p>
-                        <div id="read-more-btn" class="text-center text-neutral-700 text-base font-bold cursor-pointer">
+                        <div class="read-more-btn text-center text-neutral-700 text-base font-bold cursor-pointer">
                             نمایش بیشتر ...
                         </div>
                     </div>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            const description = document.getElementById('job-description');
-                            const btn = document.getElementById('read-more-btn');
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        const descriptions = document.querySelectorAll('.job-description');
+                        const btns = document.querySelectorAll('.read-more-btn');
 
+                        btns.forEach((btn, index) => {
                             let isExpanded = false;
 
                             btn.addEventListener('click', function() {
                                 isExpanded = !isExpanded;
                                 if (isExpanded) {
-                                    description.classList.remove('truncate');
+                                    descriptions[index].classList.remove('truncate');
                                     btn.textContent = 'بستن';
                                 } else {
-                                    description.classList.add('truncate');
+                                    descriptions[index].classList.add('truncate');
                                     btn.textContent = 'نمایش بیشتر ...';
                                 }
                             });
                         });
-                    </script>
-                </div>
+                    });
+                </script>
             </div>
         </div>
 
@@ -221,8 +216,7 @@
         <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
             <div>
                 <label for="lastname"></label>
-                <input id="lastname" name="lastname" type="username"
-                    placeholder="نام و نام خانوادگی خود را وارد کنید"
+                <input id="lastname" name="lastname" type="username" placeholder="نام و نام خانوادگی خود را وارد کنید"
                     class="block border border-gray-400 rounded-md h-12 w-full" required />
             </div>
             <div class="px-4 py-2 bg-white rounded-t-lg">
