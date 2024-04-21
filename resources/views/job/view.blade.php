@@ -277,7 +277,7 @@
 
                 @if ($comment->replies->count() > 0)
                     <div class="replies">
-                        @foreach ($category->comments->replies as $reply)
+                        @foreach ($comment->replies as $reply)
                             <div class="reply m-3 bg-neutral-50 rounded-lg border border-neutral-700">
                                 <div class="w-72 h-14 m-2">
                                     <div class=" text-neutral-700 text-xs font-medium">
